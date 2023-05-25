@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import './styles/settings/colors.css';
+import './styles/settings/fonts.css';
+import './styles/settings/sizes.css';
+import './styles/settings/spacings.css';
+import './styles/generics/normalize.css';
 
 if (process.env.NODE_ENV !== 'production') {
 	const axe = require('@axe-core/react');

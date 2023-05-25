@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+	--font-primary: 'Poppins';
+	
+	--font-title: normal normal normal 500 var(--size-big) var(--font-primary);
+	--font-title-s: normal normal normal 600 var(--size-large) var(--font-primary);
+	
+	--font-body: normal normal normal 400 var(--size-medium) var(--font-primary); 
+	--font-body-s:normal normal normal 400 var(--size-small) var(--font-primary);
+	--font-body-xs:normal normal normal 400 var(--size-xsmall) var(--font-primary);
+	--font-body-xxs:normal normal normal 400 var(--size-xxsmall) var(--font-primary);
+
+	--font-button: normal normal normal 600 var(--size-medium) var(--font-primary); 
+	--font-label: normal normal normal 600 var(--size-medium) var(--font-primary);
+	--font-icon:normal normal normal 400 var(--size-base) var(--font-primary);
+
+	--font-logo: normal normal normal 700  var(--size-base) var(--font-primary);
+	--font-menu: normal normal normal 700 var(--size-medium) var(--font-primary);
+	--font-board: normal normal normal 700 var(--size-very-big) var(--font-primary);
+}
