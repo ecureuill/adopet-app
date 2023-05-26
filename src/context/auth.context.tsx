@@ -12,7 +12,7 @@ interface IAuthContext {
 }
 
 type AuthData = {
-	user: any;
+	user: User;
 	token: string;
 }
 
