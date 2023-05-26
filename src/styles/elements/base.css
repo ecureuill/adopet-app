@@ -1,0 +1,17 @@
+body {
+	font-family: var(--font-primary);
+	font-size: var(--size-base);
+	background-color: var(--color-zero);
+	color: var(--color-primary);
+}
+
+input, textarea {
+	border: none; 
+	border-radius: var(--spacing-radius);
+	box-shadow: 2px 2px rgb(0, 0, 0, .7); 
+	
+	font: var(--font-body-xs);
+	color:  var(--color-negative-light);
+	
+	padding: var(--spacing-small);
+}

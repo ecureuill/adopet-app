@@ -1,0 +1,9 @@
+.btn.-icon.-round{
+	background-color: var(--color-zero);
+	border: 1px; 
+	border-color: var(--color-secondary);
+	border-radius: 50%;
+	box-shadow: none;
+	
+	padding: 0;
+}
