@@ -6,11 +6,7 @@ import { Button } from '../../components';
 import data from '../../i18n/pt-br.json';
 
 
-type LoginPageProps = {
-	a?: boolean
-};
-
-const LoginPage = ( props: LoginPageProps): JSX.Element => {
+const LoginPage = (): JSX.Element => {
 	return (
 		<main className='loginpg -flex-column -gap-big'>
 			<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
