@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { AuthProvider } from './context/auth.context';
+import LoginPage from './pages/LoginPage';
 import reportWebVitals from './reportWebVitals';
+//style variable
 import './styles/settings/colors.css';
 import './styles/settings/fonts.css';
 import './styles/settings/sizes.css';
 import './styles/settings/spacings.css';
+//style sheets
 import './styles/generics/normalize.css';
+import './styles/elements/base.css';
+import './styles/global/styles.css';
 
 if (process.env.NODE_ENV !== 'production') {
+	// eslint-disable-next-line @typescript-eslint/no-var-requires
 	const axe = require('@axe-core/react');
 	axe(React, ReactDOM, 1000);
 }
@@ -16,14 +23,10 @@ const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 
-if (process.env.NODE_ENV !== 'production') {
-	const axe = require('@axe-core/react');
-	axe(React, ReactDOM, 1000);
-}
 
 root.render(
 	<React.StrictMode>
-		<p>Adopet</p>
+		<LoginPage/>
 	</React.StrictMode>
 );
 

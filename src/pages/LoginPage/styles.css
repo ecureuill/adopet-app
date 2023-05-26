@@ -1,0 +1,22 @@
+.loginpg{
+	background-color: var(--color-primary);
+	color: var(--color-zero);
+	padding: 56px;
+	z-index: 0;
+	align-items: center;
+	justify-content: center;
+}
+
+.loginpg > *{
+	z-index: 2;
+}
+
+
+.bg-right {
+	right: 0;
+	top: 25%;
+	bottom: auto;
+	position: absolute;
+	z-index: 1;
+}
+
