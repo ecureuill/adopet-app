@@ -17,7 +17,6 @@ const LoginPage = (): JSX.Element => {
 				<Button>{data.account_want}</Button>
 			</div>
 			<Pets />
-			<BodyBG className='bg-right'  height={'415px'} width={'84px'}/>
 		</main>
 	);
 };

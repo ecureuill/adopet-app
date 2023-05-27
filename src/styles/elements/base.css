@@ -21,6 +21,20 @@ body {
 	overflow: hidden;
 }
 
+main{
+	display: flex;
+	flex-direction: column;
+	z-index: 0;
+	justify-content: center;
+	align-items: center;
+	padding: var(--spacing-big);
+	gap: var(--spacing-big);
+}
+
+main > *{
+	z-index: 2
+}
+
 input, textarea {
 	border: none; 
 	border-radius: var(--spacing-radius);

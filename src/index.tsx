@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { AuthProvider } from './context/auth.context';
 import LoginPage from './pages/LoginPage';
+import { ReactComponent as BodyBG } from './assets/images/body-bg.svg';
 import reportWebVitals from './reportWebVitals';
 //style variable
 import './styles/settings/colors.css';
@@ -27,6 +28,7 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<LoginPage/>
+		<BodyBG className='bg -bg-right'  height={'415px'} width={'84px'}/>
 	</React.StrictMode>
 );
 
