@@ -1,12 +1,11 @@
 import './styles.css';
 import {ReactComponent as LogoWhite} from '../../assets/images/logo-clear.svg';
 import {ReactComponent as Pets} from '../../assets/images/pets.svg';
-import {ReactComponent as BodyBG} from '../../assets/images/body-bg.svg';
 import { Button } from '../../components';
 import data from '../../i18n/pt-br.json';
 
 
-const LoginPage = (): JSX.Element => {
+const HomePage = (): JSX.Element => {
 	return (
 		<main className='loginpg -flex-column -gap-big'>
 			<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
@@ -21,4 +20,4 @@ const LoginPage = (): JSX.Element => {
 	);
 };
 
-export default LoginPage;
+export default HomePage;
