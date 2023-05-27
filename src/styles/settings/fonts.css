@@ -11,7 +11,7 @@
 	--font-body-xs:normal normal normal 400 var(--size-xsmall) var(--font-primary);
 	--font-body-xxs:normal normal normal 400 var(--size-xxsmall) var(--font-primary);
 
-	--font-button: normal normal normal 600 var(--size-small) var(--font-primary); 
+	--font-button: normal normal normal 600 var(--size-xxsmall) var(--font-primary); 
 	--font-label: normal normal normal 600 var(--size-medium) var(--font-primary);
 	--font-icon:normal normal normal 400 var(--size-base) var(--font-primary);
 

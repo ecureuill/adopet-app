@@ -26,3 +26,8 @@
 	bottom: auto;
 	;
 }
+
+.-bg-top {
+	top: 0;
+	bottom: auto;
+}

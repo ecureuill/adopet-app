@@ -1,5 +1,6 @@
  :root {
     --spacing-radius: 6px;
+    --spacing-radius-bg: 10px;
 
     --spacing-small: 8px;
     --spacing-medium: 16px;

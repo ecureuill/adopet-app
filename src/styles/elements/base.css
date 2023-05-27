@@ -45,3 +45,17 @@ input, textarea {
 	
 	padding: var(--spacing-small);
 }
+
+form {
+	border-radius: var(--spacing-radius-bg);
+	width: 100%;
+}
+
+p {
+	text-align: center;
+	line-height: 1.3em;
+}
+
+p ~ p {
+	margin-top: var(--spacing-small);
+}
