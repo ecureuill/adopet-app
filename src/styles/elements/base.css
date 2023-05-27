@@ -41,7 +41,7 @@ input, textarea {
 	box-shadow: 2px 2px rgb(0, 0, 0, .7); 
 	
 	font: var(--font-body-xs);
-	color:  var(--color-negative-light);
+	color:  var(--color-quinary);
 	
 	padding: var(--spacing-small);
 }
