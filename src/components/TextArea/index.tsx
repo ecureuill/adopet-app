@@ -5,12 +5,12 @@ export interface TextAreaProps extends React.ComponentPropsWithoutRef<'textarea'
 } 
 const TextArea = ( props: TextAreaProps): JSX.Element => {
 	const id = useId();
-	const {label, ...rest} = props;
+	const {label, className: styles,...rest} = props;
 
 	return (
 		<div className='-flex-column -gap-small'>
 			<label htmlFor={id}>{label}</label>
-			<textarea id={id} {...rest} className={'txt'} />
+			<textarea id={id} {...rest} className={`txt ${styles}`} />
 		</div>
 	);
 };

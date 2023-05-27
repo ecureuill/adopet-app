@@ -7,9 +7,9 @@ interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 
 const IconButton = ( props: IconButtonProps): JSX.Element => {
 
-	const {icon, ...rest} = props;
+	const {icon, className: styles, ...rest} = props;
 	return( 
-		<button className='btn -icon' {...rest}>
+		<button className={`btn -icon ${styles}`} {...rest}>
 			{icon}
 		</button>
 	);

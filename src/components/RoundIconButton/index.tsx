@@ -7,9 +7,9 @@ interface ManuButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 
 const ManuButton = ( props: ManuButtonProps): JSX.Element => {
 
-	const {icon, ...rest} = props;
+	const {icon, className: styles, ...rest} = props;
 	return( 
-		<button className='btn -icon -round' {...rest}>
+		<button className={`btn  -icon -round ${styles}`} {...rest}>
 			{icon}
 		</button>
 	);
