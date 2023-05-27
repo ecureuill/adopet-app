@@ -1,0 +1,48 @@
+.card-wrapper{
+	width: 360px;
+	height: 196px;
+	background-color: var(--color-quinary);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: var(--spacing-medium);
+	padding:var(--spacing-medium);
+	justify-content: space-evenly;
+}
+
+.card-description{
+	display: flex;
+	gap: var(--spacing-medium);
+	flex-direction: column;
+/*	
+	gap: 2px;
+	justify-content: space-evenly;*/
+}
+
+.card-img{
+	width: 148px;
+	height: 148px;
+}
+
+.card-img > img{
+	width: 148px;
+	height: 148px;
+}
+
+.pet-name {
+	font: var(--font-button);
+	text-align: left;
+	margin: 0px 0px auto 0px 
+}
+
+.pet-descr {
+	font: var(--font-body-xs);
+	color: var(--color-negative);
+	text-align: left;
+}
+
+.shelter-location {
+	text-align: left;
+	color: var(--color-negative);
+	font: var(--font-body-xxs);
+}

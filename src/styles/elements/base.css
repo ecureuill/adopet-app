@@ -59,3 +59,12 @@ p {
 p ~ p {
 	margin-top: var(--spacing-small);
 }
+
+a {
+	font: var(--font-body-xxs);
+	color: var(--color-tertiary);
+}
+
+ul, ol {
+	list-style: none;
+}

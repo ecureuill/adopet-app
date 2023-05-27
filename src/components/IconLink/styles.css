@@ -1,0 +1,9 @@
+.ilink-wrapper{
+	display: flex;
+	flex-direction: row;
+	gap: var(--spacing-small);
+}
+
+.ilink-wrapper > a {
+	font: var(--font-body-xxxs)
+}
