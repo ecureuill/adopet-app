@@ -25,10 +25,10 @@ main{
 	display: flex;
 	flex-direction: column;
 	z-index: 0;
-	justify-content: center;
 	align-items: center;
 	padding: var(--spacing-big);
 	gap: var(--spacing-big);
+	overflow-y: auto;
 }
 
 main > *{
