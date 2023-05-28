@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AuthProvider } from './context/auth.context';
 import LoginPage from './pages/LoginPage';
-import { ReactComponent as BodyBG } from './assets/images/body-bg.svg';
 import reportWebVitals from './reportWebVitals';
 //style sheets
 import './styles/settings/settings.css';
 import './styles/generics/normalize.css';
 import './styles/elements/base.css';
 import './styles/globals/globals.css';
-import HomePage from './pages/HomePage';
 
 if (process.env.NODE_ENV !== 'production') {
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -25,7 +22,6 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<LoginPage/>
-		<BodyBG className='bg -bg-right'  height={'415px'} width={'84px'}/>
 	</React.StrictMode>
 );
 
