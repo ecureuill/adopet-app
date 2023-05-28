@@ -7,3 +7,13 @@
 	
 	padding: var(--spacing-small);
 }
+
+.-btn-size-default {
+	height: 40px;
+	width: 148px;
+}
+
+.-btn-size-medium {
+	height: 40px;
+	width: 181px;
+}

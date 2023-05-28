@@ -11,8 +11,8 @@ const HomePage = (): JSX.Element => {
 			<h1>{data.welcome}</h1>
 			<p>{data.welcome_msg}</p>
 			<div className='-flex-column -gap-medium'>
-				<Button>{data.account_have}</Button>
-				<Button>{data.account_want}</Button>
+				<Button size='medium'>{data.account_have}</Button>
+				<Button size='medium'>{data.account_want}</Button>
 			</div>
 		</main>
 	);

@@ -1,9 +1,12 @@
 import './styles.css';
 
-const Button = ( props: React.ComponentPropsWithoutRef<'button'>): JSX.Element => {
+type ButtonProps = {
+	size?: 'default' | 'medium' | 'full'
+}
 
-	const { className: styles, ...rest } = props;
-	return <button className={`btn ${styles}`} {...rest} />;
+const Button = ( {size = 'default', className: styles, ...rest}: ButtonProps & React.ComponentPropsWithoutRef<'button'>): JSX.Element => {
+
+	return <button className={`btn -btn-size-${size} ${styles}`} {...rest} />;
 };
 
 export default Button;
