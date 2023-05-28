@@ -7,7 +7,7 @@ import data from '../../i18n/pt-br.json';
 
 const HomePage = (): JSX.Element => {
 	return (
-		<main className='loginpg -flex-column -gap-big'>
+		<main className='loginpg -flex-column -gap-big bg -body-bg-right'>
 			<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
 			<h1>{data.welcome}</h1>
 			<p>{data.welcome_msg}</p>

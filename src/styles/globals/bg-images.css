@@ -1,16 +1,53 @@
-.bg {
+.bg::before{
 	position: absolute;
-	z-index: 1
+	z-index: 1	
 }
 
-.-bg-right {
+.bg::after{
+	position: absolute;
+	z-index: 1	
+}
+
+
+.bg.-body-bg-left::before{
+	content: url('../../assets/images/body-bg-2.svg');
+	width: 84px;
+	height: 415px;
+	left: 0;
+	right: auto;
+	top: auto;
+	bottom: 34px;
+}
+
+.bg.-body-bg-right::after{
+	content: url('../../assets/images/body-bg.svg');
+	width: 84px;
+	height: 415px;
 	right: 0;
-	top: 25%;
-	bottom: auto;
-	;
+	left: auto;
 }
 
-.-bg-top {
+.bg.-header-bg-left::before{
+	background-image: url('../../assets/images/header-bg.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	content: '';
+	display: inline-flex;
+	width: 333px;
+	height: 274px;
+}
+
+.bg.-header-bg-right::after{
+	background-image: url('../../assets/images/paws.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	content: '';
+	display: inline-flex;
+	width: 148px;
+	height: 243px;
+
 	top: 0;
 	bottom: auto;
+	right: 0;
+	left: auto;
 }
