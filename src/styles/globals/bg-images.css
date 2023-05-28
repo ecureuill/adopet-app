@@ -8,7 +8,6 @@
 	z-index: 1	
 }
 
-
 .bg.-body-bg-left::before{
 	content: url('../../assets/images/body-bg-2.svg');
 	width: 84px;
@@ -25,6 +24,16 @@
 	height: 415px;
 	right: 0;
 	left: auto;
+}
+
+.bg.-body-bg-pets::after{
+	content: url('../../assets/images/pets.svg');
+	width: 247px;
+	height: 312px;
+	right: auto;
+	left: auto;
+	bottom: 0;
+
 }
 
 .bg.-header-bg-left::before{
