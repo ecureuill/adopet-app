@@ -1,0 +1,9 @@
+.imgUploader-label{
+	text-align: left;
+}
+
+.imgUploader-photo{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
