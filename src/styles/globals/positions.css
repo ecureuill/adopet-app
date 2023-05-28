@@ -1,0 +1,30 @@
+.-right{
+	right: 0;
+	left: auto;
+}
+
+.-left{
+	left: 0;
+	right: auto;
+
+}
+
+.-top {
+	top: 0;
+	bottom: auto;
+}
+
+.-bottom{
+	top: auto;
+	bottom: 0;
+}
+
+.center{
+	right: auto;
+	left: auto;
+}
+
+.middle{
+	top: auto;
+	bottom: auto;
+}

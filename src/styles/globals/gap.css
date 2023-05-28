@@ -1,0 +1,11 @@
+.-gap-medium{
+	gap: var(--spacing-medium)
+}
+
+.-gap-small {
+	gap: var(--spacing-small);
+}
+
+.-gap-big {
+	gap: var(--spacing-big);
+}

@@ -1,0 +1,16 @@
+.bg {
+	position: absolute;
+	z-index: 1
+}
+
+.-bg-right {
+	right: 0;
+	top: 25%;
+	bottom: auto;
+	;
+}
+
+.-bg-top {
+	top: 0;
+	bottom: auto;
+}

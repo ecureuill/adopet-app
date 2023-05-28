@@ -4,15 +4,12 @@ import { AuthProvider } from './context/auth.context';
 import LoginPage from './pages/LoginPage';
 import { ReactComponent as BodyBG } from './assets/images/body-bg.svg';
 import reportWebVitals from './reportWebVitals';
-//style variable
-import './styles/settings/colors.css';
-import './styles/settings/fonts.css';
-import './styles/settings/sizes.css';
-import './styles/settings/spacings.css';
 //style sheets
+import './styles/settings/settings.css';
 import './styles/generics/normalize.css';
 import './styles/elements/base.css';
-import './styles/global/styles.css';
+import './styles/globals/globals.css';
+import HomePage from './pages/HomePage';
 
 if (process.env.NODE_ENV !== 'production') {
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
