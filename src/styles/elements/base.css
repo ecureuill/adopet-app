@@ -38,7 +38,7 @@ main > *{
 input, textarea {
 	border: none; 
 	border-radius: var(--spacing-radius);
-	box-shadow: 2px 2px rgb(0, 0, 0, .7); 
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); 
 	
 	font: var(--font-body-xs);
 	color:  var(--color-quinary);
