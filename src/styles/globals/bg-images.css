@@ -26,13 +26,13 @@
 	left: auto;
 }
 
-.bg.-body-bg-pets::after{
+.bg.-body-bg-pets::before{
 	content: url('../../assets/images/pets.svg');
 	width: 247px;
 	height: 312px;
 	right: auto;
 	left: auto;
-	bottom: 0;
+	bottom: 0
 
 }
 

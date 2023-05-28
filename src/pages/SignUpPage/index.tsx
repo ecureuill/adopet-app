@@ -3,7 +3,7 @@ import data from '../../i18n/pt-br.json';
 
 const SignUpPage = (): JSX.Element => {
 	return (
-		<main>
+		<main className='bg -body-bg-left'>
 			<Logo />
 			<span>
 				<p>{data.signup_msg_question}</p>

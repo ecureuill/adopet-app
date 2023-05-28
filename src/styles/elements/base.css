@@ -21,7 +21,7 @@ body {
 	overflow: hidden;
 }
 
-main{
+main, form{
 	display: flex;
 	flex-direction: column;
 	z-index: 0;
@@ -29,6 +29,7 @@ main{
 	padding: var(--spacing-big);
 	gap: var(--spacing-big);
 	overflow-y: auto;
+	position: relative;
 }
 
 main > *{
