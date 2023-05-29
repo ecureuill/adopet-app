@@ -1,21 +1,20 @@
-import { Button, Logo, TextArea, TextInput } from '../../components';
+import { Button, Form, Header, Logo, Text, TextArea, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
 
 const SentMessagePage = (): JSX.Element => {
 	return (
-		<main>
-			<Logo />
-			<span>
-				<p>{data.sent_msg}</p>
-			</span>
-			<form className='form -flex-column -gap-big'>
-				<TextInput label={data.name}/>
-				<TextInput label={data.phone}/>
-				<TextInput label={data.pet_name}/>
-				<TextArea label={data.message} rows={5}/>
-				<Button type='submit'>{data.send}</Button>
-			</form>
-		</main>
+		<>
+			<Header />
+			<main>
+				<Text variant='body'>{data.	sent_msg}</Text>
+				<Form color='default' submitButtonLabel={data.send}>
+					<TextInput variant='white' label={data.name} placeholder={data.name_hint}/>
+					<TextInput variant='white' label={data.phone} placeholder={data.phone_hint}/>
+					<TextInput variant='white' label={data.pet_name} placeholder={data.pet_name_hint}/>
+					<TextArea variant='white' label={data.message}  placeholder={data.message_hint} rows={5}/>
+				</Form>
+			</main>
+		</>
 	);
 };
 

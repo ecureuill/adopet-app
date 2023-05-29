@@ -1,0 +1,40 @@
+.input-wrapper{
+	width: 100%;
+}
+
+.label {
+	font: var(--font-label)
+}
+
+.-label-align-center {
+	text-align: center;
+}
+
+.-label-color-dark {
+	color:  var(--color-negative);
+}
+
+.input {
+	color:  var(--color-negative);
+}
+
+.input.-input-center::placeholder {
+	text-align: center;
+}
+
+.input.-input-default{
+	background-color:  var(--color-quaternary);
+}
+
+.input.-input-white{
+	background-color:  var(--color-zero);
+}
+
+.input.-input-default::placeholder {
+	color:  var(--color-senary);
+}
+
+.input.-input-white::placeholder {
+	color:  var(--color-senary);
+}
+

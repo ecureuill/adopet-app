@@ -1,16 +1,18 @@
 import { useId } from 'react';
+import './styles.css';
 
 export interface TextAreaProps extends React.ComponentPropsWithoutRef<'textarea'> {
 	label: string,
+	variant?: 'default' | 'white',
+	align?: 'default' | 'center',
 } 
-const TextArea = ( props: TextAreaProps): JSX.Element => {
+const TextArea = ( {variant = 'default', align = 'default', label, className: styles = '',...rest}: TextAreaProps): JSX.Element => {
 	const id = useId();
-	const {label, className: styles,...rest} = props;
 
 	return (
-		<div className='-flex-column -gap-small'>
-			<label htmlFor={id}>{label}</label>
-			<textarea id={id} {...rest} className={`txt ${styles}`} />
+		<div className='textarea-wrapper -flex-column -gap-small'>
+			<label htmlFor={id} className={`label -label-${align}`}>{label}</label>
+			<textarea id={id} {...rest} className={`textarea -textarea-${variant} -textarea-${align} ${styles}`} />
 		</div>
 	);
 };

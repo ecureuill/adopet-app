@@ -1,3 +1,13 @@
-.card-wrapper{
-	margin-bottom: var(--spacing-medium);
+.petspg {
+	gap: unset;
+}
+
+.pets-wrapper {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin-top: var(--spacing-largest);
+}
+
+.card-wrapper~.card-wrapper{
+	margin-top: var(--spacing-medium);
 }

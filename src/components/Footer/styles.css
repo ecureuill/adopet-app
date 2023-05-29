@@ -2,7 +2,6 @@
 	height: 104px;
 	background-color: var(--color-secondary);
 	color: var(--color-zero);
-	font: var(--font-body-xs);
 	display: flex;
 	justify-content: center;
 	align-items: center;

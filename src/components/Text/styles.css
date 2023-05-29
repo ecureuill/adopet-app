@@ -1,0 +1,28 @@
+.body.-body-default{
+	font: var(--font-body-s);
+}
+
+.body.-body-small{
+	font: var(--font-body-xs);
+}
+
+.body.-body-large{
+	font: var(--font-body-medium);
+}
+
+.body.-body-footer {
+	font: var(--font-body-xs);
+}
+
+.title.-title-default{
+	font: var(--font-title);
+}
+
+.title.-title-small{
+	font: var(--font-title-s);
+	color: var(--color-negative)
+}
+
+.subtitle{
+	font: var(--font-title-s);
+}

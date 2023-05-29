@@ -1,5 +1,10 @@
+.imgUploader-wrapper{
+	width: 100%;
+}
+
 .imgUploader-label{
 	text-align: left;
+	font: var(--font-label);
 }
 
 .imgUploader-photo{

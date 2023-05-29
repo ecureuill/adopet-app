@@ -1,0 +1,9 @@
+.form{
+	overflow-x: hidden;
+	width: 312px;
+	padding: var(--spacing-medium);
+}
+
+.form.-form-default{
+	background-color: var(--color-quinary);
+}

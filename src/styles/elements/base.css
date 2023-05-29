@@ -1,27 +1,29 @@
-html{
+html{height: 100vh;
+	width: 100vw;
 	font-size: var(--size-base);
 	font-family: var(--font-primary);
-	color: var(--color-zero);
-	height: 100vh;
-	width: 100vw;
 }
 
 body {
-	height: 100%;
-	font: var(--font-body);
-	background-color: var(--color-zero);
 	color: var(--color-primary);
+	background-color: var(--color-zero);
+	height: 100%;
 }
 
-#root, main {
+#root{
 	width: 100%;
 	height: 100%;
-	min-height: 100%;
 	max-height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	
 	overflow: hidden;
+	border: 5px solid red;
 }
 
-main, form{
+main {
 	display: flex;
 	flex-direction: column;
 	z-index: 0;
@@ -30,10 +32,25 @@ main, form{
 	gap: var(--spacing-big);
 	overflow-y: auto;
 	position: relative;
+	padding: 56px;
+	flex-grow: 1;
 }
 
 main > *{
 	z-index: 2
+}
+
+header{
+	height: 95px;
+	min-height: 95px;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+footer{
+	height: 104px;
+	min-height: 104px;
+	flex-grow: 0;
 }
 
 input, textarea {
@@ -42,7 +59,6 @@ input, textarea {
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); 
 	
 	font: var(--font-body-xs);
-	color:  var(--color-quinary);
 	
 	padding: var(--spacing-small);
 }

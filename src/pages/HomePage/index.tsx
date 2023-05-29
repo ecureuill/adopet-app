@@ -1,20 +1,23 @@
 import './styles.css';
 import {ReactComponent as LogoWhite} from '../../assets/images/logo-clear.svg';
-import { Button } from '../../components';
+import { Button, Header, Text } from '../../components';
 import data from '../../i18n/pt-br.json';
 
 
 const HomePage = (): JSX.Element => {
 	return (
-		<main className='loginpg -flex-column -gap-big bg -body-bg-right -body-bg-pets'>
-			<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
-			<h1>{data.welcome}</h1>
-			<p>{data.welcome_msg}</p>
-			<div className='-flex-column -gap-medium'>
-				<Button size='medium'>{data.account_have}</Button>
-				<Button size='medium'>{data.account_want}</Button>
-			</div>
-		</main>
+		<>
+			<Header variant='colored'/>
+			<main className='homepg -flex-column -gap-big bg -body-bg-right -body-bg-pets'>
+				<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
+				<Text variant='title'>{data.welcome}</Text>
+				<Text variant='body'>{data.welcome_msg}</Text>
+				<div className='-flex-column -gap-medium'>
+					<Button size='medium'>{data.account_have}</Button>
+					<Button size='medium'>{data.account_want}</Button>
+				</div>
+			</main>
+		</>
 	);
 };
 

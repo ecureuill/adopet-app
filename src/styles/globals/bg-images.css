@@ -19,10 +19,13 @@
 }
 
 .bg.-body-bg-right::after{
-	content: url('../../assets/images/body-bg.svg');
+	background-image: url('../../assets/images/body-bg.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	content: '';
 	width: 84px;
 	height: 415px;
-	right: 0;
+	right: -10px;
 	left: auto;
 }
 

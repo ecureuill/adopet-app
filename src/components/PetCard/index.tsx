@@ -26,7 +26,7 @@ const PetCard = ( {name, age, ageUnit, size, behavior, city, state, children}: P
 					<li>{data[`sizes_${size as keyof object}`]}</li>
 					<li>{behavior}</li>
 				</ul>
-				<div className='card--shelter'>
+				<div className='card-shelter'>
 					<p className='shelter-location'>{city}({state})</p>
 					<IconLink link={'#'} label={data.talk_to_shelter}/>
 				</div>

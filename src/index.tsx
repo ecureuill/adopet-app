@@ -7,6 +7,12 @@ import './styles/settings/settings.css';
 import './styles/generics/normalize.css';
 import './styles/elements/base.css';
 import './styles/globals/globals.css';
+import { Footer, Header } from './components';
+import SignUpPage from './pages/SignUpPage';
+import HomePage from './pages/HomePage';
+import PetsPage from './pages/PetsPage';
+import SentMessagePage from './pages/SentMessagePage';
+import ProfileEditPage from './pages/ProfileEditPage';
 
 if (process.env.NODE_ENV !== 'production') {
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -21,7 +27,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<React.StrictMode>
-		<LoginPage/>
+		<ProfileEditPage/>
+		<Footer />
 	</React.StrictMode>
 );
 
