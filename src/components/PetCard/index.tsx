@@ -2,6 +2,7 @@ import './styles.css';
 import data from '../../i18n/pt-br.json';
 import { PropsWithChildren } from 'react';
 import IconLink from '../IconLink';
+import { ReactComponent as MessageIco } from '../../assets/images/message.svg';
 
 type PetCardProps = {
 	name: string,
@@ -28,7 +29,9 @@ const PetCard = ( {name, age, ageUnit, size, behavior, city, state, children}: P
 				</ul>
 				<div className='card-shelter'>
 					<p className='shelter-location'>{city}({state})</p>
-					<IconLink link={'#'} label={data.talk_to_shelter}/>
+					<IconLink link={'#'} label={data.talk_to_shelter}>
+						<MessageIco />
+					</IconLink>
 				</div>
 			</div>
 		</article>

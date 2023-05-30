@@ -1,3 +1,30 @@
+.header{
+	position: relative;
+}
+
+.header-menu-wrapper{
+	width: 227px;
+	padding: 48px;
+	display: inline-flex;
+	align-items: baseline;
+	gap: 56px;
+}
+
+.header-menu-wrapper > * {
+	z-index: 2;
+}
+
 .header.-header-colored {
 	background-color: var(--color-primary);
 }
+
+.user-menu {
+	display: inline-flex;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 40px;
+	right: 37px;
+	z-index: 2;
+}
+

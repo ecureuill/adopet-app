@@ -1,15 +1,23 @@
-import { ReactComponent as MessageIco } from '../../assets/images/message.svg';
+import { PropsWithChildren } from 'react';
 import './styles.css';
 
 type IconLinkProps = {
 	link: string;
-	label: string
+	label: string;
+	onlyIcon?: boolean
 };
 
-const IconLink = ( {link, label}: IconLinkProps): JSX.Element => {
+const IconLink = ( {onlyIcon=false, link, label, children}: IconLinkProps & PropsWithChildren): JSX.Element => {
+
+	if(onlyIcon)
+		return(
+			<a href={link} aria-label={label}>{children}</a>
+		);
+
 	return (
 		<div className='ilink-wrapper'>
-			<MessageIco /><a href={link}>{label}</a>
+			{children}
+			<a href={link}>{label}</a>
 		</div>
 	);
 };
