@@ -2,6 +2,26 @@
 	width: 100%;
 }
 
+.input-wrapper-password {
+	position: relative;
+	width: 100%;
+}
+
+.reveal-ico-wrapper {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 24px;
+	height: 40px;
+	padding: 2px;
+	display: flex;
+	align-items: center;
+}
+
+.reveal-ico-wrapper:hover>.reveal-ico>path {
+	fill: var(--color-tertiary);
+}
+
 .label {
 	font: var(--font-label)
 }
@@ -16,7 +36,9 @@
 
 .input {
 	color:  var(--color-negative);
+	width: 100%;
 }
+
 
 .input.-input-center::placeholder {
 	text-align: center;
