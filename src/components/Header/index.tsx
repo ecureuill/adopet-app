@@ -5,6 +5,8 @@ import { ReactComponent as MessageIco } from '../../assets/images/messages.svg';
 import { ReactComponent as UserIco } from '../../assets/images/user.svg';
 import ProfilePhoto from '../ProfilePhoto';
 import { faker } from '@faker-js/faker/locale/pt_BR';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/auth.context';
 
 interface HeaderProps extends React.ComponentPropsWithoutRef<'header'> {
 	variant?: 'colored' | 'default'
@@ -12,26 +14,32 @@ interface HeaderProps extends React.ComponentPropsWithoutRef<'header'> {
 }
 
 const Header = ( {variant = 'default', paws = false, ...rest}: HeaderProps): JSX.Element => {
-	const hasPhoto = false;
+	const { authenticated, user } = useContext(AuthContext);
 
 	return (
 		<header className={`header -header-${variant} bg -header-bg-left ${paws && '-header-bg-right'}`}>
 			<div className='header-menu-wrapper'>
-				<IconLink label='message' link='#home' key='home' onlyIcon={true}>
-					<MessageIco/>
-				</IconLink>
-				<IconLink label='home' link='#message' key='message' onlyIcon={true}>
+				<IconLink label='home' link='/' key='home' onlyIcon={true}>
 					<HomeIco />
 				</IconLink>
-			</div>
-			<div className='user-menu'>
-				{
-					hasPhoto?
-						<ProfilePhoto alt='usuario' src={faker.image.avatar()}/>
-						:
-						<UserIco/>
+				{ authenticated &&
+					<IconLink label='message' link='/message' key='message' onlyIcon={true}>
+						<MessageIco/>
+					</IconLink>
 				}
 			</div>
+			{ authenticated &&
+				<div className='user-menu'>
+					<IconLink label='my profile' link='/myprofile' key='profile' onlyIcon={true}>
+						{
+							user!.photo === undefined?
+								<UserIco/>
+								:
+								<ProfilePhoto alt='usuario' src={user!.photo as string}/>
+						}
+					</IconLink>
+				</div>
+			}
 		</header>
 	);
 };

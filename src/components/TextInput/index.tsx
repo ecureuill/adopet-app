@@ -19,6 +19,7 @@ const TextInput = ( {type, label, className: styles = '', variant = 'default', a
 					<div className={'input-wrapper-password'}>
 						<input id={id} {...rest} className={`input -input-${variant} -input-${align} ${styles}`} 
 							autoComplete='on'
+							type={type}
 
 						/>
 						<div className='reveal-ico-wrapper'>
