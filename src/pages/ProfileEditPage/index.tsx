@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker/locale/pt_BR';
-import { useId } from 'react';
+import { FormEvent, useId } from 'react';
 import { Button, Form, Header, ImageUploader, Text, TextArea, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
 
@@ -11,7 +11,15 @@ const ProfileEditPage = (): JSX.Element => {
 			<Header/>
 			<main>
 				<Text variant='body'>{data.profile_msg}</Text>
-				<Form aria-labelledby={id} submitButtonLabel={data.save}>
+				<Form 
+					aria-labelledby={id}
+					submitButtonLabel={data.save}
+					submitHandler={(event: FormEvent<HTMLFormElement>) => {
+						throw new Error('Function not implemented.');
+					} } 
+					onFormInvalid={(event: FormEvent<HTMLFormElement>) => {
+						throw new Error('Function not implemented.');
+					} }					>
 					<Text id={id} variant={'title'} size={'small'}>{data.profile}</Text>
 					<ImageUploader src={faker.image.avatar()} alt='some user' width={80} height={80}/>
 					<TextInput variant='white' label={data.name}/>
