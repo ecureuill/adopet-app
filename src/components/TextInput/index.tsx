@@ -1,34 +1,52 @@
-import { useId } from 'react';
+import { useEffect, useId } from 'react';
 import  { ReactComponent as EyeIco } from '../../assets/images/eye.svg';
 import './styles.css';
 
 export interface TextInputProps extends React.ComponentPropsWithoutRef<'input'> {
 	label: string,
+	errormessage?: string,
 	variant?: 'default' | 'white',
 	align?: 'default' | 'center'
 	labelColor?: 'default' | 'dark',
+
 } 
-const TextInput = ( {type, label, className: styles = '', variant = 'default', align = 'default', labelColor = 'default',...rest}: TextInputProps): JSX.Element => {
-	const id = useId();
+const TextInput = ( {type, errormessage, label, className: styles = '', variant = 'default', align = 'default', labelColor = 'default',...rest}: TextInputProps): JSX.Element => {
+	const id1 = useId();
+	const id2 = useId();
+	const properties: Partial<TextInputProps>={
+		className: `input -input-${variant} -input-${align} ${styles}`,
+		'aria-errormessage':id2,
+		type:type
+
+	};
 
 	return (
 		<div className={'input-wrapper -flex-column -gap-small'}>
-			<label htmlFor={id} className={`label -label-align-${align} -label-color-${labelColor}`}>{label}</label>
+			<label htmlFor={id1} className={`label -label-align-${align} -label-color-${labelColor}`}>{label}</label>
 			{
 				type === 'password'?
 					<div className={'input-wrapper-password'}>
-						<input id={id} {...rest} className={`input -input-${variant} -input-${align} ${styles}`} 
+						<input 
 							autoComplete='on'
-							type={type}
-
+							{...rest} 
+							id={id1}  
+							{...properties}
 						/>
 						<div className='reveal-ico-wrapper'>
 							<EyeIco className='reveal-ico'/>
 						</div> 
 					</div> 
 					:
-					<input id={id} {...rest} className={`input -input-${variant} -input-${align} ${styles}`} />
-			}
+					<input 
+						{...rest} 
+						id={id1}
+						{...properties}
+					/>
+			}			
+			<div aria-live='polite'>
+				<label id={id2} className='errormessage' aria-label='email'>{errormessage}</label>
+			</div>
+
 		</div>
 	);
 };
