@@ -1,9 +1,12 @@
 import { FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Form, Header, Logo, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
+import { signUpTutor } from '../../services/api/user.api';
 import { FormDataState } from '../../utils/types';
 
 const SignUpPage = (): JSX.Element => {
+	const navigate = useNavigate();
 
 	const [formData, setFormData] = useState<{
 		[key: string]: FormDataState,
@@ -26,6 +29,19 @@ const SignUpPage = (): JSX.Element => {
 		}
 	});
 
+	const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();	
+
+		const formData = new FormData(event.currentTarget);
+		const email = formData.get('email') as string;
+		const password = formData.get('password') as string;
+		const name = formData.get('name') as string;
+
+		if(await signUpTutor(email, password, name)){
+			navigate('/login', { replace: true });
+		}
+	};
+
 	return (
 		<>
 			<Header paws={true} />
@@ -38,9 +54,7 @@ const SignUpPage = (): JSX.Element => {
 				<Form 
 					color='white'
 					submitButtonLabel={data.signup}
-					submitHandler={(event: FormEvent<HTMLFormElement>) => {
-						throw new Error('Function not implemented.');
-					} } 
+					submitHandler={submitHandler} 
 					setFormData={setFormData}
 				>
 					<TextInput 
