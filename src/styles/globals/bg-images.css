@@ -63,3 +63,11 @@
 	right: 0;
 	left: auto;
 }
+
+.bg.-lost::before{
+	content: url('../../assets/images/pets-lost.png');
+	left: auto;
+	right: auto;
+	top: auto;
+	bottom: 0;
+}
