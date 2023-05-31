@@ -32,10 +32,10 @@ const Header = ( {variant = 'default', paws = false, ...rest}: HeaderProps): JSX
 				<div className='user-menu'>
 					<IconLink label='my profile' link='/myprofile' key='profile' onlyIcon={true}>
 						{
-							user!.photo === undefined?
-								<UserIco/>
-								:
+							user!.photo?
 								<ProfilePhoto alt='usuario' src={user!.photo as string}/>
+								:
+								<UserIco/>
 						}
 					</IconLink>
 				</div>
