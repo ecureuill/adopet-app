@@ -7,3 +7,16 @@
 .form.-form-default{
 	background-color: var(--color-quinary);
 }
+
+button:disabled{
+	opacity: 0.5;
+}
+
+[aria-invalid="true"] {
+  outline: 2px solid red;
+}
+
+[aria-invalid="true"] ~ div>.errormessage {
+  visibility: visible;
+  display: block;
+}

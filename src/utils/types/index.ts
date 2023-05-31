@@ -7,3 +7,9 @@ export interface User {
 	photo?: string | Buffer
 
 }
+
+export type FormDataState = {
+	value: string, 
+	valid: boolean,
+	errormessage?: string
+}
