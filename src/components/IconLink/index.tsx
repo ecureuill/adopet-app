@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 type IconLinkProps = {
@@ -11,13 +12,13 @@ const IconLink = ( {onlyIcon=false, link, label, children}: IconLinkProps & Prop
 
 	if(onlyIcon)
 		return(
-			<a href={link} aria-label={label}>{children}</a>
+			<Link to={link} aria-label={label}>{children}</Link>
 		);
 
 	return (
 		<div className='ilink-wrapper'>
 			{children}
-			<a href={link}>{label}</a>
+			<Link to={link} >{label}</Link>
 		</div>
 	);
 };

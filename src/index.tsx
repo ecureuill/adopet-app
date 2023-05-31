@@ -8,6 +8,8 @@ import './styles/generics/normalize.css';
 import './styles/elements/base.css';
 import './styles/globals/globals.css';
 import HomePage from './pages/HomePage';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routers';
 
 if (process.env.NODE_ENV !== 'production') {
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -23,7 +25,7 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<AuthProvider>
-			<HomePage />
+			<RouterProvider router={router} />
 		</AuthProvider>
 	</React.StrictMode>
 );

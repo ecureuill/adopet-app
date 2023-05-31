@@ -1,6 +1,6 @@
 import './styles.css';
 import {ReactComponent as LogoWhite} from '../../assets/images/logo-clear.svg';
-import { Button, Header, Text } from '../../components';
+import { Button, Header, LinkButton, Text } from '../../components';
 import data from '../../i18n/pt-br.json';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/auth.context';
@@ -19,11 +19,11 @@ const HomePage = (): JSX.Element => {
 				<div className='-flex-column -gap-medium'>
 
 					{authenticated?
-						<Button size='medium'>{data.lookup_pets}</Button>
+						<LinkButton to={'/pets'}>{data.lookup_pets}</LinkButton>
 						:
 						<>
-							<Button size='medium'>{data.account_have}</Button>
-							<Button size='medium'>{data.account_want}</Button>
+							<LinkButton to={'/login'}>{data.account_have}</LinkButton>
+							<LinkButton to={'/signup'}>{data.account_want}</LinkButton>
 						</>
 					}
 				</div>
