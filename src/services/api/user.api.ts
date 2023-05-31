@@ -47,15 +47,11 @@ export const getOneBy = async (id: UUID): Promise<AxiosResponse> => {
 };
 
 export const updateAll = async (id: UUID, body: any): Promise<AxiosResponse> => {
-	return await adopetAPI.put(`users/${id}`, {
-		body: body,
-	});
+	return await adopetAPI.put(`users/${id}`, body);
 };
 
 export const updateSome = async (id: UUID, body: any): Promise<AxiosResponse> => {
-	return await adopetAPI.patch(`users/${id}`, {
-		body: body,
-	});
+	return await adopetAPI.patch(`users/${id}`, body);
 };
 
 export const remove = async (id: UUID, body: any): Promise<AxiosResponse> => {
