@@ -1,0 +1,15 @@
+.link-btn {
+	background-color: var(--color-tertiary);
+	border: none; 
+	border-radius: var(--spacing-radius);	
+	font: var(--font-button);
+	color: var(--color-zero);
+	
+	padding: var(--spacing-small);
+
+	height: 40px;
+	width: 181px;
+
+	text-decoration: none;
+	text-align: center;
+}

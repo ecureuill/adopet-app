@@ -12,5 +12,6 @@ import Footer from './Footer';
 import Header from './Header';
 import Text from './Text';
 import Form from './Form';
+import LinkButton from './LinkButton';
 
-export {Button, TextInput, TextArea, IconButton, RoundIconButton, Logo, IconLink, PetCard, ProfilePhoto, ImageUploader, Footer, Header, Text, Form};
+export {Button, TextInput, TextArea, IconButton, RoundIconButton, Logo, IconLink, PetCard, ProfilePhoto, ImageUploader, Footer, Header, Text, Form, LinkButton};
