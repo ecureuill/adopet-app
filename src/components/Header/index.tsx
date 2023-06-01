@@ -7,6 +7,7 @@ import ProfilePhoto from '../ProfilePhoto';
 import { faker } from '@faker-js/faker/locale/pt_BR';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/auth.context';
+import { bufferToURL } from '../../utils';
 
 interface HeaderProps extends React.ComponentPropsWithoutRef<'header'> {
 	variant?: 'colored' | 'default'
@@ -32,8 +33,8 @@ const Header = ( {variant = 'default', paws = false, ...rest}: HeaderProps): JSX
 				<div className='user-menu'>
 					<IconLink label='my profile' link='/myprofile' key='profile' onlyIcon={true}>
 						{
-							user!.photo?
-								<ProfilePhoto alt='usuario' src={user!.photo as string}/>
+							user?.photo?
+								<ProfilePhoto alt='usuario' src={bufferToURL(user.photo.data)}/>
 								:
 								<UserIco/>
 						}
