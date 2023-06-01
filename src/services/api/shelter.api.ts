@@ -11,11 +11,19 @@ export const getOneBy = async (id: UUID): Promise<AxiosResponse> => {
 };
 
 export const updateAll = async (id: UUID, body: any): Promise<AxiosResponse> => {
-	return await adopetAPI.put(`dabrigos/${id}`, body);
+	return await adopetAPI.put(`dabrigos/${id}`, body, {
+		headers: {
+			'Content-Type':'multipart/form-data'
+		}
+	});
 };
 
 export const updateSome = async (id: UUID, body: any): Promise<AxiosResponse> => {
-	return await adopetAPI.patch(`dabrigos/${id}`, body);
+	return await adopetAPI.patch(`dabrigos/${id}`, body, {
+		headers: {
+			'Content-Type':'multipart/form-data'
+		}
+	});
 };
 
 export const remove = async (id: UUID, body: any): Promise<AxiosResponse> => {
