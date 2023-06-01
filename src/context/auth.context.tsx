@@ -40,18 +40,21 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 	}, [user]);
 
 	const signIn = async (email: string, password: string) => {
+		setError('');
 		console.debug('signIn');
-		try{
-			const response = await login(email, password);
-			adopetAPI.defaults.headers['Authorization'] = `Bearer ${response.data}`;
+		
+		const response = await login(email, password);
+		
+		if(response.status === 200)
+		{
+			adopetAPI.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
 			localStorage.setItem('@adopetAuth:data', response.data);
 			setUser(response.data.user);
 			return true;
 		}
-		catch (error: any){
-			console.debug(error.data);
-			setUser(null);
-			setError(error.data);
+		else
+		{
+			setError((response as any).error.message);
 			return false;
 		}
 	};
@@ -59,6 +62,7 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 	const signOut = () => {
 		adopetAPI.defaults.headers['Authorization'] = null;
 		localStorage.removeItem('@adopetAuth');
+		setUser(null);
 	};
 
 	return (

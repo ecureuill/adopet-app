@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Form, Header, Logo, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
-import { FormDataState } from '../../utils/types';
+import { FormDataState, SubmitedStatus } from '../../utils/types';
 import './styles.css';
 
 const LoginPage = (): JSX.Element => {
@@ -12,6 +12,7 @@ const LoginPage = (): JSX.Element => {
 	const location = useLocation();
 	const authContext = useContext(AuthContext);
 
+	const [ submitStatus, setStatusMsg] = useState<SubmitedStatus>({status: 'not-submited'});
 	const [formData, setFormData] = useState<{
 		[key: string]: FormDataState,
 	}>({
@@ -28,7 +29,6 @@ const LoginPage = (): JSX.Element => {
 	const from = location.state?.from?.pathname || '/';
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-		console.debug(from);
 		event.preventDefault();
 
 		const formData = new FormData(event.currentTarget);
@@ -41,11 +41,15 @@ const LoginPage = (): JSX.Element => {
 			else 
 				navigate(from, { replace: true });
 		}
-		else
-		{
-			console.debug(authContext.error);
-		}
 	};
+
+	useEffect(() => {
+		if(authContext.error !== '')
+			setStatusMsg({
+				status: 'failed',
+				message: authContext.error
+			});
+	}, [authContext.error]);
 
 	return (
 		<>
@@ -57,7 +61,8 @@ const LoginPage = (): JSX.Element => {
 					color='white'
 					submitButtonLabel={data.login}
 					submitHandler={(event) => handleSubmit(event)}
-					setFormData={setFormData}
+					setFormData={setFormData} 
+					submitedStatus={submitStatus}
 				>
 					<TextInput 
 						name='email' 

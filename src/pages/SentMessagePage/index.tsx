@@ -38,6 +38,7 @@ const SentMessagePage = (): JSX.Element => {
 						throw new Error('Function not implemented.');
 					} }
 					setFormData={setFormData}
+					submitedStatus={{status: 'not-submited'}}
 				>
 					<TextInput 
 						name='name'

@@ -10,6 +10,9 @@ import './styles/globals/globals.css';
 import HomePage from './pages/HomePage';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routers';
+import { QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { queryClient } from './services/query-client';
 
 if (process.env.NODE_ENV !== 'production') {
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -24,9 +27,13 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<React.StrictMode>
-		<AuthProvider>
-			<RouterProvider router={router} />
-		</AuthProvider>
+		<QueryClientProvider client={queryClient}>
+			<AuthProvider>
+				<RouterProvider router={router} />
+			</AuthProvider>
+			<ReactQueryDevtools initialIsOpen={false} />
+		</QueryClientProvider>
+
 	</React.StrictMode>
 );
 

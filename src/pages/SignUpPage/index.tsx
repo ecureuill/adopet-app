@@ -1,12 +1,13 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Header, Logo, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
 import { signUpTutor } from '../../services/api/user.api';
-import { FormDataState } from '../../utils/types';
+import { FormDataState, SubmitedStatus } from '../../utils/types';
 
 const SignUpPage = (): JSX.Element => {
 	const navigate = useNavigate();
+	const [ submitStatus, setStatusMsg] = useState<SubmitedStatus>({status: 'not-submited'});
 
 	const [formData, setFormData] = useState<{
 		[key: string]: FormDataState,
@@ -27,7 +28,7 @@ const SignUpPage = (): JSX.Element => {
 			valid: false,
 			value: '', 
 		}
-	});
+	});	
 
 	const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();	
@@ -37,8 +38,15 @@ const SignUpPage = (): JSX.Element => {
 		const password = formData.get('password') as string;
 		const name = formData.get('name') as string;
 
-		if(await signUpTutor(email, password, name)){
+
+		const resp = await signUpTutor(email, password, name);
+
+		if(resp.status === 201){
 			navigate('/login', { replace: true });
+		}
+		else
+		{
+			setStatusMsg({status: 'failed', message: (resp as any).error.message});
 		}
 	};
 
@@ -56,6 +64,7 @@ const SignUpPage = (): JSX.Element => {
 					submitButtonLabel={data.signup}
 					submitHandler={submitHandler} 
 					setFormData={setFormData}
+					submitedStatus={submitStatus}
 				>
 					<TextInput 
 						name='email'

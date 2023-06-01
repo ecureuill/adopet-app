@@ -1,18 +1,21 @@
-import { ComponentPropsWithoutRef, FormEvent, PropsWithChildren, SetStateAction, useState } from 'react';
-import { FormDataState } from '../../utils/types';
+import { ComponentPropsWithoutRef, FormEvent, PropsWithChildren, SetStateAction, useId, useState } from 'react';
+import { FormDataState, SubmitedStatus } from '../../utils/types';
 import Button from '../Button';
 import './styles.css';
+import data from '../../i18n/pt-br.json';
 
 type FormProps = {
 	color?: 'default' | 'white',
 	submitButtonLabel: string,
 	setFormData: React.Dispatch<SetStateAction<{[key: string]: FormDataState}>>
 	submitHandler: React.FormEventHandler<HTMLFormElement>
+	submitedStatus: SubmitedStatus,
 };
 
 
-const Form = ( {setFormData, submitHandler, submitButtonLabel, color = 'default', children, className: styles = '', ...rest}: FormProps & ComponentPropsWithoutRef<'form'> & PropsWithChildren): JSX.Element => {
+const Form = ( {submitedStatus, setFormData, submitHandler, submitButtonLabel, color = 'default', children, className: styles = '', ...rest}: FormProps & ComponentPropsWithoutRef<'form'> & PropsWithChildren): JSX.Element => {
 
+	const id = useId();
 	const [ isValid, setIsValid ] = useState(false);
 
 	const updateFormState = (event: FormEvent<HTMLFormElement>) => {
@@ -26,7 +29,8 @@ const Form = ( {setFormData, submitHandler, submitButtonLabel, color = 'default'
 				return {
 					...prev,
 					[target.name]: {
-						value: target.value,
+						value: target.files? URL.createObjectURL(target.files[0]): target.value,
+						file: target.files? target.files[0]: undefined,
 						valid: target.validity.valid,
 						errormessage: target.validationMessage
 					},
@@ -38,6 +42,7 @@ const Form = ( {setFormData, submitHandler, submitButtonLabel, color = 'default'
 	return (
 		// eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
 		<form
+			id={id}
 			onSubmit={submitHandler} 
 			onChange={(e) => {
 				if(e.currentTarget.checkValidity())
@@ -48,6 +53,17 @@ const Form = ( {setFormData, submitHandler, submitButtonLabel, color = 'default'
 			className={`form -form-${color} -flex-column  -flex-align-center -gap-big ${styles}`}
 		>
 			{children}
+			{
+				submitedStatus.status !== 'not-submited' &&
+				<label htmlFor={id}>
+					{
+						submitedStatus.status === 'success'? 
+							data.submited_successfully
+							:
+							<span>{data.submited_unsuccessfully}<br/>{submitedStatus.message}</span>	
+					}
+				</label>	
+			}
 			<Button type='submit' disabled={!isValid}>{submitButtonLabel}</Button>
 		</form>
 	);
