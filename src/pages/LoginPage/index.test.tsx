@@ -137,7 +137,7 @@ describe('Login Page', () => {
 
 	});
 
-	it('should submit form and redirect to login page', async () => {
+	it('should submit form and redirect to pets page', async () => {
 		const user = userEvent.setup();
 		render(<LoginPage />, { wrapper: AllTheProviders});
 
