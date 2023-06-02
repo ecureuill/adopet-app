@@ -16,7 +16,7 @@
 	"login_msg": "Já tem conta? Faça seu login:",
 	"lookup_pets": "Ver pets",
 	"message": "Mensagem",
-	"message_hint": "Escreva sua mensagem",
+	"message_hint": "Escreva sua mensagem.",
 	"name": "Nome",
 	"name_hint" : "Insira seu nome completo",
 	"name_signup_hint" : "Digite seu nome completo",
