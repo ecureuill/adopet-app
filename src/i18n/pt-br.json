@@ -26,7 +26,7 @@
 	"password_confirm": "Confirmar sua senha",
 	"password_login_confirm_hint": "Repita sua senha",
 	"password_signup_confirm_hint": "Repita a senha criada acima",
-	"password_forget": "Esqueci minha senha",
+	"password_forget": "Esqueci minha senha.",
 	"pets_msg": "Olá! Veja os amigos disponíveis para adoção!", 
 	"pet_name": "Nome do animal", 
 	"pet_name_hint": "Por qual animal você se interessou?",
