@@ -1,6 +1,5 @@
-import { adopetAPI } from '../../../src/services/api';
-import { login, getAll, signUp } from '../../../src/services/api/user.api';
 import { faker } from '@faker-js/faker/locale/pt_BR';
+import { getAll, login, signUp } from './user.api';
 
 describe('AdoPET API', () => {
 
@@ -10,7 +9,7 @@ describe('AdoPET API', () => {
 	});
 
 	it('should respond OK when post /signup', async () => {
-		const resp = await signUp(faker.internet.email(), faker.internet.password(), faker.person.fullName())
+		const resp = await signUp(faker.internet.email(), faker.internet.password(), faker.person.fullName());
 		
 		expect(resp.status).toBe(201);
 	});

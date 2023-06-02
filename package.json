@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/node": "^16.18.32",
     "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "test": "jest",
+    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(axios)/) --silent'",
     "build": "craco build",
     "eject": "craco eject"
   },
@@ -59,7 +59,8 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__test__/__transforms__/files.transformer.js"
     }
   }
 }
