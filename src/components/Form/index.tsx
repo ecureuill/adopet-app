@@ -23,7 +23,6 @@ const Form = ( {submitedStatus, setFormData, submitHandler, submitButtonLabel, c
 		{
 			const target = event.target as HTMLInputElement;
 
-			console.debug(target);
 			setFormData((prev) => {
 
 				return {
@@ -43,6 +42,7 @@ const Form = ( {submitedStatus, setFormData, submitHandler, submitButtonLabel, c
 		// eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
 		<form
 			id={id}
+			name={`form-${id}`}
 			onSubmit={submitHandler} 
 			onChange={(e) => {
 				if(e.currentTarget.checkValidity())
