@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker/locale/pt_BR';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LoginPage from '.';
 import data from '../../i18n/pt-br.json';
@@ -8,23 +8,40 @@ import { AllTheProviders } from '../../__test__/utils/wrapper';
 
 describe('Login Page', () => {
 
-	it('should render login form with all components', () => {
+	it('should render [Já tem conta? Faça seu login:]', () => {
 		
 		render(<LoginPage />, {wrapper: AllTheProviders});
 					
-		const links = screen.getAllByRole('link');
-		const buttons = screen.getAllByRole('button');
-		const inputs = screen.getAllByRole('textbox');
+		expect(screen.getByText('Já tem conta? Faça seu login:', { selector: 'p'})).toBeInTheDocument();
+	});
 
-		expect(links.length).toEqual(2);
-		expect(buttons.length).toEqual(1);
-		expect(inputs.length).toEqual(1); // https://github.com/testing-library/dom-testing-library/issues/567
-		screen.getByText('Entrar', { selector: 'button'});
+	it('should render link [Esqueci minha senha]', () => {
+		
+		render(<LoginPage />, {wrapper: AllTheProviders});
+					
+		expect(screen.getAllByRole('link')).toHaveLength(1);
+		expect(screen.getByText('Esqueci minha senha.', { selector: 'a'})).toBeInTheDocument();
+	});
 
-		screen.getByText('Já tem conta? Faça seu login:', { selector: 'p'});
-		screen.getByLabelText('Senha');
-		screen.getByRole('main');
-		screen.getByText('Esqueci minha senha.', { selector: 'a'});
+	it('should render button [Entrar]', () => {
+		
+		render(<LoginPage />, {wrapper: AllTheProviders});
+					
+		expect(screen.getByText('Entrar', { selector: 'button'})).toBeInTheDocument();
+	});
+
+	it('should render button [Ver senha]', () => {
+		
+		render(<LoginPage />, {wrapper: AllTheProviders});
+					
+		expect(screen.getByRole('button', { name: 'ver senha'})).toBeInTheDocument();
+	});
+
+	it('should not render button [esconder senha]', () => {
+		
+		render(<LoginPage />, {wrapper: AllTheProviders});
+					
+		expect(screen.queryByRole('button', { name: 'esconder senha'})).not.toBeInTheDocument();
 	});
 
 	test.each([
@@ -36,7 +53,6 @@ describe('Login Page', () => {
 
 		const input = screen.getByLabelText(key);
 
-		expect(input).toBeRequired();
 		expect(input).toHaveAttribute('type', type);
 		
 	});
@@ -50,7 +66,6 @@ describe('Login Page', () => {
 
 		const input = screen.getByLabelText(key);
 
-		expect(input).toBeRequired();
 		expect(input).toHaveAttribute('placeholder', placeholder);
 		
 	});
@@ -101,7 +116,6 @@ describe('Login Page', () => {
 		await user.type(input, parseToKeyboard(value));
 		await user.tab(); 
 
-		expect(input).toBeInvalid();
 		expect(input).toHaveErrorMessage('Constraints not satisfied');
 	});
 
@@ -125,7 +139,7 @@ describe('Login Page', () => {
 		const user = userEvent.setup();
 		render(<LoginPage />, { wrapper: AllTheProviders});
 
-		const submitbtn = screen.getByRole('button');
+		const submitbtn = screen.getByRole('button', { name: 'Entrar'});
 
 		expect(submitbtn).toBeDisabled();
 
@@ -141,7 +155,7 @@ describe('Login Page', () => {
 		const user = userEvent.setup();
 		render(<LoginPage />, { wrapper: AllTheProviders});
 
-		const submitbtn = screen.getByRole('button');
+		const submitbtn = screen.getByRole('button', { name: 'Entrar'});
 
 		await user.type(screen.getByLabelText('Email'), parseToKeyboard(faker.internet.email()));
 

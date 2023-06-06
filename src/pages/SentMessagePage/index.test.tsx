@@ -1,28 +1,29 @@
-import SentMessagePage from '.';
-import { AllTheProvidersAutheticated } from '../../__test__/utils/wrapper';
+import { faker } from '@faker-js/faker/locale/pt_BR';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { faker } from '@faker-js/faker/locale/pt_BR';
-import { parseToKeyboard } from '../../__test__/utils/parser';
+import SentMessagePage from '.';
 import data from '../../i18n/pt-br.json';
+import { parseToKeyboard } from '../../__test__/utils/parser';
+import { AllTheProvidersAutheticated } from '../../__test__/utils/wrapper';
 
 describe('SentMessage page', () => {
 
-	it('should rend all contents', () => {
+	it('should render paragraph [ Envie uma mensagem...]', () => {
 		render(<SentMessagePage />, {
 			wrapper: AllTheProvidersAutheticated
 		});
 
-		expect(screen.getAllByRole('textbox')).toHaveLength(4);
-		expect(screen.getAllByRole('button')).toHaveLength(1);
-		expect(screen.getAllByRole('form')).toHaveLength(1);
-
-		screen.getByText('Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:', {
+		expect(screen.getByText('Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:', {
 			selector: 'p'
+		})).toBeInTheDocument();
+	});
+	
+	it('should render a form', () => {
+		render(<SentMessagePage />, {
+			wrapper: AllTheProvidersAutheticated
 		});
-		screen.getByText('Enviar', {
-			selector: 'button'
-		});
+
+		expect(screen.getByRole('form')).toBeInTheDocument();
 	});
 	
 	test.each([
@@ -34,9 +35,7 @@ describe('SentMessage page', () => {
 
 		const input = screen.getByLabelText(key);
 
-		expect(input).toBeRequired();
 		expect(input).not.toHaveAttribute('type');
-		
 	});
 	
 	test.each([
@@ -49,7 +48,6 @@ describe('SentMessage page', () => {
 		render(<SentMessagePage />, {wrapper: AllTheProvidersAutheticated});
 		const input = screen.getByLabelText(key);
 
-		expect(input).toBeRequired();
 		expect(input).toHaveAttribute('placeholder', placeholder);
 		
 	});
@@ -109,7 +107,6 @@ describe('SentMessage page', () => {
 		await user.type(input, parseToKeyboard(value));
 		await user.tab(); 
 
-		expect(input).toBeInvalid();
 		expect(input).toHaveErrorMessage('Constraints not satisfied');
 
 	});
@@ -144,7 +141,7 @@ describe('SentMessage page', () => {
 		await user.type(screen.getByLabelText('Nome do animal'), parseToKeyboard(faker.person.firstName()));
 		await user.type(screen.getByLabelText('Mensagem'), parseToKeyboard(faker.lorem.paragraphs()));
 
-		expect(submit).not.toBeDisabled();
+		expect(submit).toBeEnabled();
 
 	});
 

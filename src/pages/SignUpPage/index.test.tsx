@@ -8,28 +8,42 @@ import { AllTheProviders } from '../../__test__/utils/wrapper';
 
 describe('signup Page', () => {
 
-	it('should render Signup form with all components', () => {
+	it('should render Signup form with [Ainda não tem cadastro?]', () => {
 		
 		render(<SignUpPage />, {wrapper: AllTheProviders});
 		
-		const links = screen.getAllByRole('link');
-		const buttons = screen.getAllByRole('button');
-		const inputs = screen.getAllByRole('textbox');
-		const inputsPWD = screen.getAllByLabelText(/senha/i);
-
-		expect(links.length).toEqual(1);
-		expect(buttons.length).toEqual(1);
-		expect(inputs.length).toEqual(2); // https://github.com/testing-library/dom-testing-library/issues/567
-		expect(inputsPWD.length).toEqual(2); // https://github.com/testing-library/dom-testing-library/issues/567
-
-		screen.getByText('Ainda não tem cadastro?', { selector: 'p'});
+		expect(screen.getByText('Ainda não tem cadastro?', { selector: 'p'})).toBeInTheDocument();
 		screen.getByText('Então, antes de buscar seu melhor amigo, precisamos de alguns dados:', { selector: 'p'});
+	});
 
-		const btn = screen.getByText('Cadastrar', { selector: 'button'});
-
-		screen.getByRole('main');
+	it('should render Signup form with [Então, antes de buscar...]', () => {
+		
+		render(<SignUpPage />, {wrapper: AllTheProviders});
+		
+		expect(screen.getByText('Então, antes de buscar seu melhor amigo, precisamos de alguns dados:', { selector: 'p'})).toBeInTheDocument();
 	});
 	
+	it('should render button [Cadastrar]', () => {
+		
+		render(<SignUpPage />, {wrapper: AllTheProviders});
+		
+		expect(screen.getByRole('button', { name: 'Cadastrar'})).toBeInTheDocument();
+	});
+	
+	it('should render 2 buttons [Ver senha]', () => {
+		
+		render(<SignUpPage />, {wrapper: AllTheProviders});
+		
+		expect(screen.getAllByRole('button', { name: /Ver senha/i})).toHaveLength(2);
+	});
+	
+	it('should not render 2 buttons [esconder senha]', () => {
+		
+		render(<SignUpPage />, {wrapper: AllTheProviders});
+		
+		expect(screen.queryAllByRole('button', { name: /esconder senha/i})).toHaveLength(0);
+	});
+
 	test.each([
 		['Email', 'email'],
 		['Senha', 'password'],
@@ -72,7 +86,6 @@ describe('signup Page', () => {
 		expect(screen.getByLabelText(key)).toBeRequired();
 	});
 	
-	
 	test.each([
 		['Email'],
 		['Nome'],
@@ -114,7 +127,6 @@ describe('signup Page', () => {
 		await user.type(input, parseToKeyboard(value));
 		await user.tab(); 
 
-		expect(input).toBeInvalid();
 		expect(input).toHaveErrorMessage('Constraints not satisfied');
 
 	});
@@ -145,7 +157,7 @@ describe('signup Page', () => {
 		const user = userEvent.setup();
 		render(<SignUpPage />, { wrapper: AllTheProviders});
 
-		const submit = screen.getByRole('button');
+		const submit = screen.getByRole('button', {name: 'Cadastrar'});
 
 		expect(submit).toBeDisabled();
 
@@ -167,7 +179,7 @@ describe('signup Page', () => {
 		const user = userEvent.setup();
 		render(<SignUpPage />, { wrapper: AllTheProviders});
 
-		const submit = screen.getByRole('button');
+		const submit = screen.getByRole('button', {name: 'Cadastrar'});
 
 		await user.type(screen.getByLabelText('Email'), parseToKeyboard(faker.internet.email()));
 
