@@ -86,7 +86,6 @@ const LoginPage = (): JSX.Element => {
 					aria-errormessage={formData?.password.errormessage}
 					errormessage={formData?.password.errormessage}
 					aria-invalid={!formData?.password.valid}
-					minLength={8}
 					align='center' 
 					labelColor='dark' 
 				/>
