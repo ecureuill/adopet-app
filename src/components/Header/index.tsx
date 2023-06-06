@@ -1,24 +1,24 @@
-import IconLink from '../IconLink';
-import './styles.css';
+import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ReactComponent as HomeIco } from '../../assets/images/home.svg';
 import { ReactComponent as MessageIco } from '../../assets/images/messages.svg';
 import { ReactComponent as UserIco } from '../../assets/images/user.svg';
-import ProfilePhoto from '../ProfilePhoto';
-import { faker } from '@faker-js/faker/locale/pt_BR';
-import { useContext } from 'react';
 import { AuthContext } from '../../context/auth.context';
 import { bufferToURL } from '../../utils';
+import IconLink from '../IconLink';
+import ProfilePhoto from '../ProfilePhoto';
+import './styles.css';
 
-interface HeaderProps extends React.ComponentPropsWithoutRef<'header'> {
-	variant?: 'colored' | 'default'
-	paws?: boolean,
-}
 
-const Header = ( {variant = 'default', paws = false, ...rest}: HeaderProps): JSX.Element => {
+const Header = ({className, ...rest}: React.ComponentPropsWithoutRef<'header'>): JSX.Element => {
 	const { authenticated, user } = useContext(AuthContext);
+	const location = useLocation();
+
+	const paws = (location.pathname === '/signup' || location.pathname === '/login');
+	const variant = location.pathname === '/' ? 'colored' : 'default';
 
 	return (
-		<header className={`header -header-${variant} bg -header-bg-left ${paws && '-header-bg-right'}`}>
+		<header className={`header -header-${variant} bg -header-bg-left ${paws && '-header-bg-right'} ${className}`} {...rest} >
 			<div className='header-menu-wrapper'>
 				<IconLink label='home' link='/' key='home' onlyIcon={true}>
 					<HomeIco />

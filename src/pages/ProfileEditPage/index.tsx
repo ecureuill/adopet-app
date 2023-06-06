@@ -3,7 +3,7 @@ import { UUID } from 'crypto';
 import { useContext, useEffect, useId, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { Form, Header, ImageUploader, Text, TextArea, TextInput } from '../../components';
+import { Form, ImageUploader, Text, TextArea, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
 import { getOneBy, updateSome } from '../../services/api/tutor.api';
@@ -99,65 +99,62 @@ const ProfileEditPage = (): JSX.Element => {
 	};
 
 	return (
-		<>
-			<Header/>
-			<main>
-				<Text variant='body'>{data.profile_msg}</Text>
-				<Form 
-					aria-labelledby={id}
-					submitButtonLabel={data.save}
-					submitHandler={submitHandler} 
-					setFormData={setFormData}
-					submitedStatus={submitStatus}
-				>
-					<Text id={id} variant={'title'} size={'small'}>{data.profile}</Text>
-					<ImageUploader src={formData?.photo.file? URL.createObjectURL(formData?.photo.file) : formData.photo.value} alt='some user' width={80} height={80}/>
-					<TextInput 
-						name='name'
-						value={formData?.name.value}
-						required
-						aria-required={true}
-						aria-errormessage={formData?.name.errormessage}
-						errormessage={formData?.name.errormessage}
-						aria-invalid={!formData?.name.valid}
-						label={data.name}
-						variant='white' 
-					/>
-					<TextInput 
-						name='phone'
-						value={formData?.phone.value}
-						required
-						aria-required={true}
-						aria-errormessage={formData?.phone.errormessage}
-						errormessage={formData?.phone.errormessage}
-						aria-invalid={!formData?.phone.valid}
-						label={data.phone}
-						variant='white'
-					/>
-					<TextInput 
-						name='city'
-						value={formData?.city.value}
-						required
-						aria-required={true}
-						aria-errormessage={formData?.city.errormessage}
-						errormessage={formData?.city.errormessage}
-						aria-invalid={!formData?.city.valid}
-						label={data.city}
-						variant='white'
-					/>
-					<TextArea 
-						name='about'
-						value={formData?.about.value}
-						aria-errormessage={formData?.about.errormessage}
-						errormessage={formData?.about.errormessage}
-						aria-invalid={!formData?.about.valid}
-						label={data.about}
-						variant='white'
-						rows={5}
-					/>
-				</Form>
-			</main>
-		</>
+		<main>
+			<Text variant='body'>{data.profile_msg}</Text>
+			<Form 
+				aria-labelledby={id}
+				submitButtonLabel={data.save}
+				submitHandler={submitHandler} 
+				setFormData={setFormData}
+				submitedStatus={submitStatus}
+			>
+				<Text id={id} variant={'title'} size={'small'}>{data.profile}</Text>
+				<ImageUploader src={formData?.photo.file? URL.createObjectURL(formData?.photo.file) : formData.photo.value} alt='some user' width={80} height={80}/>
+				<TextInput 
+					name='name'
+					value={formData?.name.value}
+					required
+					aria-required={true}
+					aria-errormessage={formData?.name.errormessage}
+					errormessage={formData?.name.errormessage}
+					aria-invalid={!formData?.name.valid}
+					label={data.name}
+					variant='white' 
+				/>
+				<TextInput 
+					name='phone'
+					value={formData?.phone.value}
+					required
+					aria-required={true}
+					aria-errormessage={formData?.phone.errormessage}
+					errormessage={formData?.phone.errormessage}
+					aria-invalid={!formData?.phone.valid}
+					label={data.phone}
+					variant='white'
+				/>
+				<TextInput 
+					name='city'
+					value={formData?.city.value}
+					required
+					aria-required={true}
+					aria-errormessage={formData?.city.errormessage}
+					errormessage={formData?.city.errormessage}
+					aria-invalid={!formData?.city.valid}
+					label={data.city}
+					variant='white'
+				/>
+				<TextArea 
+					name='about'
+					value={formData?.about.value}
+					aria-errormessage={formData?.about.errormessage}
+					errormessage={formData?.about.errormessage}
+					aria-invalid={!formData?.about.valid}
+					label={data.about}
+					variant='white'
+					rows={5}
+				/>
+			</Form>
+		</main>
 	);
 };
 
