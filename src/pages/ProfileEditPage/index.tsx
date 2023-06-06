@@ -1,11 +1,10 @@
 import { faker } from '@faker-js/faker/locale/pt_BR';
-import { UUID } from 'crypto';
 import { useContext, useEffect, useId, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, ImageUploader, Text, TextArea, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
-import { getOneBy, updateSome } from '../../services/api/tutor.api';
+import { updateSome } from '../../services/api/tutor.api';
 import { useTutorQuery } from '../../services/query-client';
 import { bufferToURL } from '../../utils';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
@@ -66,7 +65,7 @@ const ProfileEditPage = (): JSX.Element => {
 				},
 				photo: {
 					valid: !!tutorQuery.data.user.photo,
-					value: tutorQuery.data.user.photo? bufferToURL(tutorQuery.data.user.photo.data): faker.image.avatar(), 
+					value: tutorQuery.data.user.photo? bufferToURL(tutorQuery.data.user.photo.data): '', 
 				}
 			});
 		}	

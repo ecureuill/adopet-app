@@ -1,11 +1,16 @@
 import './styles.css';
+import { ReactComponent as UserIco } from '../../assets/images/user.svg';
+
 interface ProfilePhotoProps extends React.ComponentPropsWithoutRef<'img'>{
 	alt: string,
 	src: string,
 }
 
 const ProfilePhoto = ( props: ProfilePhotoProps): JSX.Element => {
-	const { className: styles, ...rest } = props;
+	const { className: styles, src, ...rest } = props;
+
+	if(src === '')
+		return <UserIco className={`profile-img ${styles}`} />;
 
 	return (
 		<img {...rest} className={`profile-img ${styles}`} />

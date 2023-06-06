@@ -32,12 +32,7 @@ const Header = ({className, ...rest}: React.ComponentPropsWithoutRef<'header'>):
 			{ authenticated &&
 				<div className='user-menu'>
 					<IconLink label='my profile' link='/myprofile' key='profile' onlyIcon={true}>
-						{
-							user?.photo?
-								<ProfilePhoto alt='usuario' src={bufferToURL(user.photo.data)}/>
-								:
-								<UserIco/>
-						}
+						<ProfilePhoto alt='usuario' src={user?.photo? bufferToURL(user.photo.data) : ''}/>
 					</IconLink>
 				</div>
 			}
