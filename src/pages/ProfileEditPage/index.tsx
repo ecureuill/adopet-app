@@ -13,13 +13,13 @@ import { FormDataState, SubmitedStatus } from '../../utils/types';
 
 const ProfileEditPage = (): JSX.Element => {
 	const id= useId();
-	const authctx = useContext(AuthContext);
+	const {user, updateUser} = useContext(AuthContext);
 	const navigate = useNavigate();
-	const { data: tutorQuery, status} = useTutorQuery(authctx.user!.id!);
+	const { data: tutorQuery, status} = useTutorQuery(user!.id!);
 
 	const [ submitStatus, setStatusMsg] = useState<SubmitedStatus>({status: 'not-submited'});
 
-	const [formData, setFormData] = useState<{
+	const [formState, setFormState] = useState<{
 		[key: string]: FormDataState,
 	}>({
 		name: {
@@ -47,7 +47,7 @@ const ProfileEditPage = (): JSX.Element => {
 	useEffect(() => {
 
 		if(status === 'success'){
-			setFormData({
+			setFormState({
 				name: {
 					valid: !!tutorQuery.data.user.name,
 					value: tutorQuery.data.user.name 
@@ -78,17 +78,30 @@ const ProfileEditPage = (): JSX.Element => {
 		event.preventDefault();	
 
 		const formData = new FormData(event.currentTarget);
-		const phone = formData.get('phone') as string;
-		const city = formData.get('city') as string;
-		const name = formData.get('name') as string;
-		const about = formData.get('about') as string;
-		const photo = formData.get('photo') as File;
 
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-		const resp = await updateSome(authctx.user!.id!, formData);
+		const resp = await updateSome(user!.id!, formData);
 
-		if((resp).status === 200)
+		if((resp).status === 200){
 			setStatusMsg({status: 'success'});
+			
+			const name = formData.get('name');
+			const photo = formData.get('photo') as File;
+			
+			if(name !== null){
+				console.debug('name !== null');
+				console.debug(name);
+				updateUser({name: name});
+			}
+
+			if(photo !== null && photo.size > 0 && photo.type.startsWith('image')){
+				const fr = new FileReader();
+				fr.readAsArrayBuffer(photo as File);
+				fr.onloadend = () =>{
+					updateUser({photo: {data: fr.result}});
+				};
+			}
+		}
 		
 		else if((resp as any).redirect)
 			navigate('ops',{ 
@@ -106,51 +119,51 @@ const ProfileEditPage = (): JSX.Element => {
 				aria-labelledby={id}
 				submitButtonLabel={data.save}
 				submitHandler={submitHandler} 
-				setFormData={setFormData}
+				setFormData={setFormState}
 				submitedStatus={submitStatus}
 			>
 				<Text id={id} variant={'title'} size={'small'}>{data.profile}</Text>
-				<ImageUploader src={formData?.photo.file? URL.createObjectURL(formData?.photo.file) : formData.photo.value} alt='some user' width={80} height={80}/>
+				<ImageUploader src={formState?.photo.file? URL.createObjectURL(formState?.photo.file) : formState.photo.value} alt='some user' width={80} height={80}/>
 				<TextInput 
 					name='name'
-					value={formData?.name.value}
+					value={formState?.name.value}
 					required
 					aria-required={true}
-					aria-errormessage={formData?.name.errormessage}
-					errormessage={formData?.name.errormessage}
-					aria-invalid={!formData?.name.valid}
+					aria-errormessage={formState?.name.errormessage}
+					errormessage={formState?.name.errormessage}
+					aria-invalid={!formState?.name.valid}
 					label={data.name}
 					variant='white' 
 				/>
 				<TextInput 
 					name='phone'
 					type='tel'
-					value={formData?.phone.value}
+					value={formState?.phone.value}
 					required
 					aria-required={true}
-					aria-errormessage={formData?.phone.errormessage}
-					errormessage={formData?.phone.errormessage}
-					aria-invalid={!formData?.phone.valid}
+					aria-errormessage={formState?.phone.errormessage}
+					errormessage={formState?.phone.errormessage}
+					aria-invalid={!formState?.phone.valid}
 					label={data.phone}
 					variant='white'
 				/>
 				<TextInput 
 					name='city'
-					value={formData?.city.value}
+					value={formState?.city.value}
 					required
 					aria-required={true}
-					aria-errormessage={formData?.city.errormessage}
-					errormessage={formData?.city.errormessage}
-					aria-invalid={!formData?.city.valid}
+					aria-errormessage={formState?.city.errormessage}
+					errormessage={formState?.city.errormessage}
+					aria-invalid={!formState?.city.valid}
 					label={data.city}
 					variant='white'
 				/>
 				<TextArea 
 					name='about'
-					value={formData?.about.value}
-					aria-errormessage={formData?.about.errormessage}
-					errormessage={formData?.about.errormessage}
-					aria-invalid={!formData?.about.valid}
+					value={formState?.about.value}
+					aria-errormessage={formState?.about.errormessage}
+					errormessage={formState?.about.errormessage}
+					aria-invalid={!formState?.about.valid}
 					label={data.about}
 					variant='white'
 					rows={5}
@@ -158,11 +171,6 @@ const ProfileEditPage = (): JSX.Element => {
 			</Form>
 		</main>
 	);
-};
-
-const fetch = async (id: UUID) => {
-	return( (await getOneBy(id)).data);
-
 };
 
 export default ProfileEditPage;

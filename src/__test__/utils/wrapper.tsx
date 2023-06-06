@@ -1,5 +1,4 @@
-import { render, RenderOptions } from '@testing-library/react';
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
@@ -10,7 +9,7 @@ export const AllTheProviders = ({children}: {children: React.ReactNode}) => {
 	return (
 		<BrowserRouter>
 			<QueryClientProvider client={queryClient}>
-				<AuthContext.Provider value={{user: null, authenticated: false, error: '', loading: false, signIn: async () => false, signOut: () => console.debug('logout')}}>
+				<AuthContext.Provider value={{user: null, authenticated: false, error: '', loading: false, signIn: async () => false, signOut: () => console.debug('logout'), updateUser: (arg) => console.debug('updateUser'),}}>
 					{children}
 				</AuthContext.Provider>
 			</QueryClientProvider>
@@ -22,7 +21,7 @@ export const AllTheProvidersAutheticated = ({children}: {children: React.ReactNo
 	return (
 		<BrowserRouter>
 			<QueryClientProvider client={queryClient}>
-				<AuthContext.Provider value={{user: {} as User, authenticated: true, error: '', loading: false, signIn: async () => false, signOut: () => console.debug('logout')}}>
+				<AuthContext.Provider value={{user: {} as User, authenticated: true, error: '', loading: false, signIn: async () => false, signOut: () => console.debug('logout'), updateUser: (arg) => console.debug('updateUser')}}>
 					{children}
 				</AuthContext.Provider>
 			</QueryClientProvider>

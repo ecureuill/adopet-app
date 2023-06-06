@@ -9,6 +9,7 @@ interface IAuthContext {
 	user: User | null,
 	signIn: (email: string, password: string) => Promise<boolean>,
 	signOut: () => void,
+	updateUser: (arg: {[key: string]: any}) => void,
 	error: any
 }
 
@@ -65,9 +66,15 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 		setUser(null);
 	};
 
+	const updateUser = (arg: {[key: string]: any}) => {
+		setUser((prev) => {
+			return {...prev!, ...arg};
+		});
+	};
+	
 	return (
 		<AuthContext.Provider value={{
-			authenticated: !!user, loading, user, signIn, signOut, error
+			authenticated: !!user, updateUser, loading, user, signIn, signOut, error
 		}}>
 			{children}
 		</AuthContext.Provider>
