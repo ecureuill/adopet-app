@@ -124,6 +124,7 @@ const ProfileEditPage = (): JSX.Element => {
 				/>
 				<TextInput 
 					name='phone'
+					type='tel'
 					value={formData?.phone.value}
 					required
 					aria-required={true}

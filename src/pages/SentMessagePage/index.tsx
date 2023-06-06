@@ -52,6 +52,7 @@ const SentMessagePage = (): JSX.Element => {
 				/>
 				<TextInput 
 					name='phone'
+					type='tel'
 					value={formData?.phone.value}
 					placeholder={data.phone_hint}
 					required
