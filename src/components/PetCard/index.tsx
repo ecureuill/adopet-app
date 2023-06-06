@@ -4,6 +4,7 @@ import { PropsWithChildren, useContext } from 'react';
 import IconLink from '../IconLink';
 import { ReactComponent as MessageIco } from '../../assets/images/message.svg';
 import { AuthContext } from '../../context/auth.context';
+import { Text } from '../.';
 
 type PetCardProps = {
 	name: string,
@@ -25,16 +26,16 @@ const PetCard = ( {name, age, ageUnit, size, behavior, city, state, children}: P
 				{children}
 			</div>
 			<div className='card-description'>
-				<h1 className='pet-name'>{name}</h1>
+				<Text variant='subtitle' size='default' className='pet-name'>{name}</Text>
 				<ul className='pet-descr'>
 					<li>{age} {data[`ageunit_${ageUnit as keyof object}`]}</li>
-					<li>{data[`sizes_${size as keyof object}`]}</li>
+					<li>{data.size} {data[`sizes_${size as keyof object}`]}</li>
 					<li>{behavior}</li>
 				</ul>
 				<div className='card-shelter'>
-					<p className='shelter-location'>{city}({state})</p>
+					<p className='shelter-location'>{city} ({state})</p>
 					{ authenticated &&
-						<IconLink link={'contact'} label={data.talk_to_shelter}>
+						<IconLink link={'/contact'} label={data.talk_to_shelter}>
 							<MessageIco />
 						</IconLink>
 					}

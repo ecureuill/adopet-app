@@ -51,6 +51,7 @@ const Form = ( {submitedStatus, setFormData, submitHandler, submitButtonLabel, c
 			}}
 			onBlur={updateFormState}
 			className={`form -form-${color} -flex-column  -flex-align-center -gap-big ${styles}`}
+			{...rest}
 		>
 			{children}
 			{

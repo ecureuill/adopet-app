@@ -26,7 +26,7 @@ const PetsPage = (): JSX.Element => {
 				status === 'success' &&
 					<>
 						{pets.length === 0 &&  <Text variant='body' size='small'>Não encontrado</Text>}
-						<ul className='pets-wrapper'>
+						<ul className='pets-wrapper' aria-label='pets'>
 							{
 								pets.map((pet) => 
 									<li>

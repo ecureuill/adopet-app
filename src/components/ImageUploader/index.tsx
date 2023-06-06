@@ -15,10 +15,10 @@ const ImageUploader = ({src, alt, width, height}: ImageUploaderProps): JSX.Eleme
 
 	return (
 		<div className='imgUploader-wrapper'>
-			<p className='imgUploader-label'>{data.photo}</p>
 			<label htmlFor={id}>
-				<ProfilePhoto src={src} alt={alt} width={width} height={height}  className='imgUploader-photo'/>
+				<p className='imgUploader-label'>{data.photo}</p>
 			</label>
+			<ProfilePhoto src={src} alt={alt} width={width} height={height}  className='imgUploader-photo'/>
 			<input type='file'
 				name="photo"
 				id={id}
