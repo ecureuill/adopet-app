@@ -49,24 +49,24 @@ const ProfileEditPage = (): JSX.Element => {
 		if(status === 'success'){
 			setFormData({
 				name: {
-					valid: !!tutorQuery.user.name,
-					value: tutorQuery.user.name 
+					valid: !!tutorQuery.data.user.name,
+					value: tutorQuery.data.user.name 
 				},
 				phone: {
-					valid: !!tutorQuery.user.phone,
-					value: tutorQuery.user.phone, 
+					valid: !!tutorQuery.data.user.phone,
+					value: tutorQuery.data.user.phone, 
 				},
 				city: {
-					valid: !!tutorQuery.user.city,
-					value: tutorQuery.user.city, 
+					valid: !!tutorQuery.data.user.city,
+					value: tutorQuery.data.user.city, 
 				},
 				about: {
-					valid: !!tutorQuery.about,
-					value: tutorQuery.about, 
+					valid: !!tutorQuery.data.about,
+					value: tutorQuery.data.about, 
 				},
 				photo: {
-					valid: !!tutorQuery.user.photo,
-					value: tutorQuery.user.photo? bufferToURL(tutorQuery.user.photo.data): faker.image.avatar(), 
+					valid: !!tutorQuery.data.user.photo,
+					value: tutorQuery.data.user.photo? bufferToURL(tutorQuery.data.user.photo.data): faker.image.avatar(), 
 				}
 			});
 		}	
