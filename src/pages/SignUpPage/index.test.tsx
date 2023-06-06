@@ -118,7 +118,6 @@ describe('signup Page', () => {
 	test.each([
 		['Email','@invalid'],
 		['Senha',faker.string.sample({min: 1, max: 7})],
-		['Confirma sua senha',faker.string.sample({min: 1, max: 7})],
 	])('input [ %s ] should be invalidate and show errorMessage when filled with invalid value %s', async (key: string, value) => {
 		const user = userEvent.setup();
 		render(<SignUpPage />, {wrapper: AllTheProviders});
@@ -128,6 +127,39 @@ describe('signup Page', () => {
 		await user.tab(); 
 
 		expect(input).toHaveErrorMessage('Constraints not satisfied');
+
+	});
+
+	it('input [Confirma sua senha] should be valid when filled with same value from input [Senha]', async () => {
+		const user = userEvent.setup();
+		render(<SignUpPage />, {wrapper: AllTheProviders});
+		const value = parseToKeyboard(faker.internet.password({ length: 15}));
+
+		await user.type(screen.getByLabelText('Senha'), value);
+		await user.tab(); 
+		
+		const input = screen.getByLabelText('Confirma sua senha');
+		await user.tab(); 
+		
+		await user.type(input, value);
+
+		expect(input).toBeValid();
+
+	});
+
+	it('input [Confirma sua senha] should be invalidate and show errorMessage when filled with different value from input [Senha]', async () => {
+		const user = userEvent.setup();
+		render(<SignUpPage />, {wrapper: AllTheProviders});
+
+		await user.type(screen.getByLabelText('Senha'), parseToKeyboard(faker.internet.password({ length: 15})));
+		await user.tab(); 
+		
+		const input = screen.getByLabelText('Confirma sua senha');
+		await user.tab(); 
+
+		await user.type(input, parseToKeyboard(faker.internet.password({ length: 15})));
+
+		expect(input).toHaveErrorMessage('As senhas são diferentes');
 
 	});
 
