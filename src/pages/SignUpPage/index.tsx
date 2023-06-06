@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Logo, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
@@ -48,6 +48,21 @@ const SignUpPage = (): JSX.Element => {
 		{
 			setStatusMsg({status: 'failed', message: (resp as any).error.message});
 		}
+	};
+
+	const passwordReDoValidation = (event: React.FocusEvent<HTMLInputElement, Element>): void => {
+		if(formData.password.value !== '')	
+		{		
+			if (event.target.value !== formData.password.value) {
+				event.target.setCustomValidity('As senhas são diferentes');
+				event.target.reportValidity();
+			}
+			else {
+				event.target.setCustomValidity('');
+				event.target.reportValidity();
+			}
+		}
+
 	};
 
 	return (
@@ -107,7 +122,7 @@ const SignUpPage = (): JSX.Element => {
 					label={data.password}
 					labelColor='dark'
 					variant='white'
-					align='center'  
+					align='center'
 				/>
 				<TextInput 
 					name='password_confirm'
@@ -124,6 +139,8 @@ const SignUpPage = (): JSX.Element => {
 					labelColor='dark'
 					variant='white'
 					align='center'  
+					onBlur={passwordReDoValidation}
+					onChange={passwordReDoValidation}
 				/>
 			</Form>
 		</main>
