@@ -20,7 +20,6 @@ body {
 	flex-wrap: nowrap;
 	
 	overflow: hidden;
-	border: 5px solid red;
 }
 
 main {
@@ -31,6 +30,7 @@ main {
 	padding: var(--spacing-big);
 	gap: var(--spacing-big);
 	overflow-y: auto;
+	overflow-x: hidden;
 	position: relative;
 	padding: 56px;
 	flex-grow: 1;
