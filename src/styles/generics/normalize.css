@@ -1,6 +1,6 @@
 @import-normalize;
 
-main, figure, body, p, li, ol, ul {
+main, figure, body, p, li, ol, ul, h1, h2 {
 	margin :0;
 	padding: 0;
     box-sizing: border-box;
