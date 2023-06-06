@@ -1,12 +1,12 @@
 import { faker } from '@faker-js/faker/locale/pt_BR';
 import { UUID } from 'crypto';
 import { useContext, useEffect, useId, useState } from 'react';
-import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { Form, ImageUploader, Text, TextArea, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
 import { getOneBy, updateSome } from '../../services/api/tutor.api';
+import { useTutorQuery } from '../../services/query-client';
 import { bufferToURL } from '../../utils';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
 
@@ -15,7 +15,7 @@ const ProfileEditPage = (): JSX.Element => {
 	const id= useId();
 	const authctx = useContext(AuthContext);
 	const navigate = useNavigate();
-	const { data: tutorQuery, status} = useQuery<any, Error>('tutor', () => getOneBy(authctx.user!.id!));
+	const { data: tutorQuery, status} = useTutorQuery(authctx.user!.id!);
 
 	const [ submitStatus, setStatusMsg] = useState<SubmitedStatus>({status: 'not-submited'});
 
@@ -46,7 +46,7 @@ const ProfileEditPage = (): JSX.Element => {
 
 	useEffect(() => {
 
-		if(status === 'success')
+		if(status === 'success'){
 			setFormData({
 				name: {
 					valid: !!tutorQuery.data.user.name,
@@ -69,6 +69,7 @@ const ProfileEditPage = (): JSX.Element => {
 					value: tutorQuery.data.user.photo? bufferToURL(tutorQuery.data.user.photo.data): faker.image.avatar(), 
 				}
 			});
+		}	
 
 	}, [status]);
 
