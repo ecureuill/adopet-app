@@ -7,7 +7,7 @@
 	flex-wrap: nowrap;
 	gap: var(--spacing-medium);
 	padding:var(--spacing-medium);
-	justify-content: space-evenly;
+	justify-content: start;
 }
 
 .card-description{
@@ -24,12 +24,6 @@
 .card-img > img{
 	width: 148px;
 	height: 148px;
-}
-
-.pet-name {
-	font: var(--font-button);
-	text-align: left;
-	margin: 0px 0px auto 0px 
 }
 
 .pet-descr {
