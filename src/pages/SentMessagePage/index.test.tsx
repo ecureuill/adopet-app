@@ -28,7 +28,6 @@ describe('SentMessage page', () => {
 	
 	test.each([
 		['Nome'],
-		['Telefone'],
 		['Nome do animal'],
 	])('input [ %s ] should not have attribute type', (key: string) => {
 		render(<SentMessagePage />, {wrapper: AllTheProvidersAutheticated});
@@ -36,6 +35,12 @@ describe('SentMessage page', () => {
 		const input = screen.getByLabelText(key);
 
 		expect(input).not.toHaveAttribute('type');
+	});
+	
+	it('input [Telefone] should have attribute type', () => {
+		render(<SentMessagePage />, {wrapper: AllTheProvidersAutheticated});
+
+		expect(screen.getByRole('textbox', {name: 'Telefone'})).toHaveAttribute('type', 'tel');
 	});
 	
 	test.each([
@@ -89,7 +94,7 @@ describe('SentMessage page', () => {
 		await user.click(input);
 		await user.tab(); 
 
-		expect(input).toHaveErrorMessage();
+		expect(input).toHaveErrorMessage('Constraints not satisfied');
 
 	});
 	
@@ -120,7 +125,7 @@ describe('SentMessage page', () => {
 		expect(form).toBeInvalid();
 
 		await user.type(screen.getByLabelText('Nome'), parseToKeyboard(faker.person.fullName()));
-		await user.type(screen.getByLabelText('Telefone'), parseToKeyboard(faker.phone.number('## #.####-####')));
+		await user.type(screen.getByLabelText('Telefone'), parseToKeyboard(faker.phone.number('## #####-####')));
 		await user.type(screen.getByLabelText('Nome do animal'), parseToKeyboard(faker.person.firstName()));
 		await user.type(screen.getByLabelText('Mensagem'), parseToKeyboard(faker.lorem.paragraphs()));
 
@@ -137,7 +142,7 @@ describe('SentMessage page', () => {
 		expect(submit).toBeDisabled();
 
 		await user.type(screen.getByLabelText('Nome'), parseToKeyboard(faker.person.fullName()));
-		await user.type(screen.getByLabelText('Telefone'), parseToKeyboard(faker.phone.number('## #.####-####')));
+		await user.type(screen.getByLabelText('Telefone'), parseToKeyboard(faker.phone.number('## #####-####')));
 		await user.type(screen.getByLabelText('Nome do animal'), parseToKeyboard(faker.person.firstName()));
 		await user.type(screen.getByLabelText('Mensagem'), parseToKeyboard(faker.lorem.paragraphs()));
 
@@ -152,7 +157,7 @@ describe('SentMessage page', () => {
 		const submit = screen.getByRole('button');
 
 		await user.type(screen.getByLabelText('Nome'), parseToKeyboard(faker.person.fullName()));
-		await user.type(screen.getByLabelText('Telefone'), parseToKeyboard(faker.phone.number('## #.####-####')));
+		await user.type(screen.getByLabelText('Telefone'), parseToKeyboard(faker.phone.number('## #####-####')));
 		await user.type(screen.getByLabelText('Nome do animal'), parseToKeyboard(faker.person.firstName()));
 		await user.type(screen.getByLabelText('Mensagem'), parseToKeyboard(faker.lorem.paragraphs()));
 

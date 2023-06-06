@@ -130,7 +130,7 @@ describe('ProfileEdit page', () =>{
 		await user.type(screen.getByRole('textbox', {name: 'Nome'}), parseToKeyboard(faker.person.fullName()));
 		await user.type(screen.getByRole('textbox', {name: 'Cidade'}), parseToKeyboard(faker.location.city()));
 		await user.type(screen.getByRole('textbox', {name: 'Sobre'}), parseToKeyboard(faker.lorem.paragraphs()));
-		await user.type(screen.getByRole('textbox', {name: 'Telefone'}), parseToKeyboard(faker.phone.number('## #.####-####')));
+		await user.type(screen.getByRole('textbox', {name: 'Telefone'}), parseToKeyboard(faker.phone.number('## #####-####')));
 		
 		expect(form).toBeValid();
 
@@ -149,7 +149,7 @@ describe('ProfileEdit page', () =>{
 		await user.type(screen.getByRole('textbox', {name: 'Nome'}), parseToKeyboard(faker.person.fullName()));
 		await user.type(screen.getByRole('textbox', {name: 'Cidade'}), parseToKeyboard(faker.location.city()));
 		await user.type(screen.getByRole('textbox', {name: 'Sobre'}), parseToKeyboard(faker.lorem.paragraphs()));
-		await user.type(screen.getByRole('textbox', {name: 'Telefone'}), parseToKeyboard(faker.phone.number('## #.####-####')));
+		await user.type(screen.getByRole('textbox', {name: 'Telefone'}), parseToKeyboard(faker.phone.number('## #####-####')));
 		
 		expect(button).toBeEnabled();
 
@@ -166,7 +166,7 @@ describe('ProfileEdit page', () =>{
 		await user.type(screen.getByRole('textbox', {name: 'Nome'}), parseToKeyboard(faker.person.fullName()));
 		await user.type(screen.getByRole('textbox', {name: 'Cidade'}), parseToKeyboard(faker.location.city()));
 		await user.type(screen.getByRole('textbox', {name: 'Sobre'}), parseToKeyboard(faker.lorem.paragraphs()));
-		await user.type(screen.getByRole('textbox', {name: 'Telefone'}), parseToKeyboard(faker.phone.number('## #.####-####')));
+		await user.type(screen.getByRole('textbox', {name: 'Telefone'}), parseToKeyboard(faker.phone.number('## #####-####')));
 		
 		await user.click(button);
 	});
