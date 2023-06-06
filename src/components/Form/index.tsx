@@ -45,15 +45,22 @@ const Form = ( {submitedStatus, setFormData, submitHandler, submitButtonLabel, c
 			name={`form-${id}`}
 			onSubmit={submitHandler} 
 			onChange={(e) => {
-				if(e.currentTarget.checkValidity())
-					setIsValid(true);
+				submitedStatus.status = 'not-submited';
+				submitedStatus.message = undefined;
+				setIsValid(e.currentTarget.checkValidity());
 				updateFormState(e);
 			}}
-			onBlur={updateFormState}
+			onBlur={(e) => {
+				submitedStatus.status = 'not-submited';
+				submitedStatus.message = undefined;
+				setIsValid(e.currentTarget.checkValidity());
+				updateFormState(e);
+			}}
 			className={`form -form-${color} -flex-column  -flex-align-center -gap-big ${styles}`}
 			{...rest}
 		>
 			{children}
+			<Button type='submit' disabled={!isValid}>{submitButtonLabel}</Button>
 			{
 				submitedStatus.status !== 'not-submited' &&
 				<label htmlFor={id}>
@@ -65,7 +72,6 @@ const Form = ( {submitedStatus, setFormData, submitHandler, submitButtonLabel, c
 					}
 				</label>	
 			}
-			<Button type='submit' disabled={!isValid}>{submitButtonLabel}</Button>
 		</form>
 	);
 };
