@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { Form, Logo, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
@@ -66,7 +67,10 @@ const SignUpPage = (): JSX.Element => {
 	};
 
 	return (
-		<main className='bg -body-bg-left'>
+		<main>
+			<Helmet>
+				<body className='bg -body-bg-left' />
+			</Helmet>
 			<Logo />
 			<span>
 				<p>{data.signup_msg_question}</p>

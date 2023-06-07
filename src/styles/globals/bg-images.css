@@ -1,21 +1,24 @@
 .bg::before{
 	position: absolute;
-	z-index: 1	
+	z-index: -1	
 }
 
 .bg::after{
 	position: absolute;
-	z-index: 1	
+	z-index: -1	
 }
 
 .bg.-body-bg-left::before{
-	content: url('../../assets/images/body-bg-2.svg');
+	content: '';
+	background-image: url('../../assets/images/body-bg-2.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
 	width: 84px;
 	height: 415px;
 	left: 0;
 	right: auto;
 	top: auto;
-	bottom: 34px;
+	bottom: 134px;
 }
 
 .bg.-body-bg-right::after{
@@ -25,17 +28,18 @@
 	content: '';
 	width: 84px;
 	height: 415px;
-	right: -10px;
-	left: auto;
+	top: 200px;
+	right: -20px;
 }
 
 .bg.-body-bg-pets::before{
-	content: url('../../assets/images/pets.svg');
+	content: '';
+	background-image: url('../../assets/images/pets.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
 	width: 247px;
 	height: 312px;
-	right: auto;
-	left: auto;
-	bottom: 0
+	bottom: 86px;
 
 }
 

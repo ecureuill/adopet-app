@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Form, Logo, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
@@ -51,7 +52,10 @@ const LoginPage = (): JSX.Element => {
 	}, [authContext.error]);
 
 	return (
-		<main className='bg -body-bg-left -body-bg-paws'>
+		<main>
+			<Helmet>
+				<body className='bg -body-bg-left -body-bg-paws' />
+			</Helmet>
 			<Logo />
 			<p>{data.login_msg}</p>
 			<Form 

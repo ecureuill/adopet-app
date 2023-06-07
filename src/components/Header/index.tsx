@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ReactComponent as HomeIco } from '../../assets/images/home.svg';
 import { ReactComponent as MessageIco } from '../../assets/images/messages.svg';
-import { ReactComponent as UserIco } from '../../assets/images/user.svg';
 import { AuthContext } from '../../context/auth.context';
 import { bufferToURL } from '../../utils';
 import IconLink from '../IconLink';
@@ -15,10 +14,9 @@ const Header = ({className, ...rest}: React.ComponentPropsWithoutRef<'header'>):
 	const location = useLocation();
 
 	const paws = (location.pathname === '/signup' || location.pathname === '/login');
-	const variant = location.pathname === '/' ? 'colored' : 'default';
 
 	return (
-		<header className={`header -header-${variant} bg -header-bg-left ${paws && '-header-bg-right'} ${className}`} {...rest} >
+		<header className={`header bg -header-bg-left ${paws? '-header-bg-right': ''} ${className}`} {...rest} >
 			<div className='header-menu-wrapper'>
 				<IconLink label='home' link='/' key='home' onlyIcon={true}>
 					<HomeIco />
