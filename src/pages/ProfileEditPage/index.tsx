@@ -112,7 +112,7 @@ const ProfileEditPage = (): JSX.Element => {
 	};
 
 	return (
-		<main>
+		<>
 			<Text variant='body'>{data.profile_msg}</Text>
 			<Form 
 				aria-labelledby={id}
@@ -168,7 +168,7 @@ const ProfileEditPage = (): JSX.Element => {
 					rows={5}
 				/>
 			</Form>
-		</main>
+		</>
 	);
 };
 

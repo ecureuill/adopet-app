@@ -67,7 +67,7 @@ const SignUpPage = (): JSX.Element => {
 	};
 
 	return (
-		<main>
+		<>
 			<Helmet>
 				<body className='bg -body-bg-left' />
 			</Helmet>
@@ -147,7 +147,7 @@ const SignUpPage = (): JSX.Element => {
 					onChange={passwordReDoValidation}
 				/>
 			</Form>
-		</main>
+		</>
 	);
 };
 

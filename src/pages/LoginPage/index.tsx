@@ -5,7 +5,6 @@ import { Form, Logo, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
-import './styles.css';
 
 const LoginPage = (): JSX.Element => {
 	const navigate = useNavigate();
@@ -52,7 +51,7 @@ const LoginPage = (): JSX.Element => {
 	}, [authContext.error]);
 
 	return (
-		<main>
+		<>
 			<Helmet>
 				<body className='bg -body-bg-left -body-bg-paws' />
 			</Helmet>
@@ -95,7 +94,7 @@ const LoginPage = (): JSX.Element => {
 				/>
 				<a href='/forget'>{data.password_forget}</a>
 			</Form>
-		</main>
+		</>
 	);
 };
 

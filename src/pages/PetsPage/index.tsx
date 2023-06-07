@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker/locale/pt_BR';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { PetCard, Text } from '../../components';
 import data from '../../i18n/pt-br.json';
 import { usePetsQuery } from '../../services/query-client';
@@ -19,7 +20,10 @@ const PetsPage = (): JSX.Element => {
 	}, [petQuery, status]);
 
 	return (
-		<main className='petspg'>
+		<>
+			<Helmet>
+				<body className='petspg' />
+			</Helmet>
 			<Text variant='body'>{data.pets_msg}</Text>
 			{status === 'loading' && <Text variant='body' size='small'>{status}...</Text>}
 			{	
@@ -46,7 +50,7 @@ const PetsPage = (): JSX.Element => {
 						</ul>
 					</> 
 			}
-		</main>
+		</>
 	);
 };
 

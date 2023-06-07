@@ -15,22 +15,20 @@ const HomePage = (): JSX.Element => {
 			<Helmet>
 				<body className='homepg bg -body-bg-right -body-bg-pets' />
 			</Helmet>
-			<main className='-flex-column -gap-big'>
-				<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
-				<Text variant='title'>{data.welcome}</Text>
-				<Text variant='body'>{data.welcome_msg}</Text>
-				<div className='-flex-column -gap-medium'>
+			<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
+			<Text variant='title'>{data.welcome}</Text>
+			<Text variant='body'>{data.welcome_msg}</Text>
+			<div className='-flex-column -gap-medium'>
 
-					{authenticated?
-						<LinkButton to={'/pets'}>{data.lookup_pets}</LinkButton>
-						:
-						<>
-							<LinkButton to={'/login'}>{data.account_have}</LinkButton>
-							<LinkButton to={'/signup'}>{data.account_want}</LinkButton>
-						</>
-					}
-				</div>
-			</main>
+				{authenticated?
+					<LinkButton to={'/pets'}>{data.lookup_pets}</LinkButton>
+					:
+					<>
+						<LinkButton to={'/login'}>{data.account_have}</LinkButton>
+						<LinkButton to={'/signup'}>{data.account_want}</LinkButton>
+					</>
+				}
+			</div>
 		</>
 	);
 };

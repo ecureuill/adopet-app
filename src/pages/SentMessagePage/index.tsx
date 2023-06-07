@@ -27,7 +27,7 @@ const SentMessagePage = (): JSX.Element => {
 	});
 
 	return (
-		<main>
+		<>
 			<Text variant='body'>{data.sent_msg}</Text>
 			<Form 
 				color='default'
@@ -89,7 +89,7 @@ const SentMessagePage = (): JSX.Element => {
 					rows={5}
 				/>
 			</Form>
-		</main>
+		</>
 	);
 };
 
