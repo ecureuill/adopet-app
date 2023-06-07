@@ -10,10 +10,6 @@
 	gap: 56px;
 }
 
-.header-menu-wrapper > * {
-	z-index: 2;
-}
-
 .header.-header-colored {
 	background-color: var(--color-primary);
 }
@@ -25,7 +21,6 @@
 	position: absolute;
 	top: 40px;
 	right: 37px;
-	z-index: 2;
 }
 
 .user-menu img{
