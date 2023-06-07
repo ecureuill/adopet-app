@@ -1,9 +1,9 @@
 :root{
-	--size-base:10px;
-	--size-xxsmall:1.2rem;
-	--size-xsmall:1.4rem;
-	--size-small:1.6rem;
-	--size-medium:1.8rem;
-	--size-large:2.1rem;
-	--size-big:2.8rem;
+	--size-base: 10px;
+	--size-xxsmall: clamp(1.4rem, 2vw, 1.6rem);;
+	--size-xsmall: clamp(1.4rem, 2vw, 1.6rem);;
+	--size-small: clamp(1.6rem, 2vw, 1.8rem);
+	--size-medium: clamp(1.8rem, 2vw, 2.0rem);;
+	--size-large: clamp(2.1rem, 2vw, 2.3rem);;
+	--size-big: clamp(2.8rem, 2vw, 3.0rem);;
 }
