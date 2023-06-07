@@ -13,7 +13,7 @@ const ProfilePhoto = ( props: ProfilePhotoProps): JSX.Element => {
 		return <UserIco className={`profile-img ${styles}`} />;
 
 	return (
-		<img {...rest} className={`profile-img ${styles}`} />
+		<img src={src} {...rest} className={`profile-img ${styles}`} />
 	);
 };
 
