@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/adopet-app/static/css/main.5eb2d5be.css",
+    "main.js": "/adopet-app/static/js/main.7c5297c0.js",
+    "static/js/787.3745c325.chunk.js": "/adopet-app/static/js/787.3745c325.chunk.js",
+    "static/media/paws.png": "/adopet-app/static/media/paws.e0dc4ce81389d6bcaf42.png",
+    "static/media/pets-lost.png": "/adopet-app/static/media/pets-lost.20d80c10dd73a522559b.png",
+    "static/media/pets.svg": "/adopet-app/static/media/pets.b5a97bd4b01e0caaf151.svg",
+    "static/media/logo-blue.svg": "/adopet-app/static/media/logo-blue.54249e8781911f91d8d5d2f0778af883.svg",
+    "static/media/logo-clear.svg": "/adopet-app/static/media/logo-clear.70fc5ca930181c9d02a9605a28039204.svg",
+    "static/media/eye.svg": "/adopet-app/static/media/eye.5ae0ce98d49086918671bf3b373aba5b.svg",
+    "static/media/message.svg": "/adopet-app/static/media/message.a71fd916fbc1491a583132e09c9303c9.svg",
+    "static/media/user.svg": "/adopet-app/static/media/user.6f88cbe8973e0cd4ffe85b13a89c1b02.svg",
+    "static/media/messages.svg": "/adopet-app/static/media/messages.5f7dd28207df71cb5402d68be6dc1b1c.svg",
+    "index.html": "/adopet-app/index.html",
+    "static/media/body-bg.svg": "/adopet-app/static/media/body-bg.f6dadb0e4c8547d3b0c1.svg",
+    "static/media/body-bg-2.svg": "/adopet-app/static/media/body-bg-2.1783641e9e50062c596f.svg",
+    "static/media/header-bg.svg": "/adopet-app/static/media/header-bg.044069ffb5f84fbd554e.svg",
+    "static/media/home.svg": "/adopet-app/static/media/home.ee2869b277070865e1bcf08741dae8fe.svg",
+    "main.5eb2d5be.css.map": "/adopet-app/static/css/main.5eb2d5be.css.map",
+    "main.7c5297c0.js.map": "/adopet-app/static/js/main.7c5297c0.js.map",
+    "787.3745c325.chunk.js.map": "/adopet-app/static/js/787.3745c325.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5eb2d5be.css",
+    "static/js/main.7c5297c0.js"
+  ]
+}

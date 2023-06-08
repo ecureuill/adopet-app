@@ -1,0 +1,15 @@
+{
+  "short_name": "Adopet App",
+  "name": "Adopet",
+  "icons": [
+    {
+      "src": "adopet-icon.png",
+      "type": "image/png",
+      "sizes": "139x139"
+    },
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
