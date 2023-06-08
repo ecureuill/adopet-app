@@ -34,7 +34,7 @@ main {
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: relative;
-	padding: 56px;
+	padding: 0 56px 56px 56px;
 	flex-grow: 1;
 }
 

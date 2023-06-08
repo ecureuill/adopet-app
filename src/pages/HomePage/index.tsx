@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import { ReactComponent as LogoWhite } from '../../assets/images/logo-clear.svg';
-import { LinkButton, Text } from '../../components';
+import { LinkButton, Logo, Text } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
 import './styles.css';
@@ -15,9 +14,9 @@ const HomePage = (): JSX.Element => {
 			<Helmet>
 				<body className='homepg bg -body-bg-right -body-bg-pets' />
 			</Helmet>
-			<LogoWhite title='adopet' height={'46px'} width={'186px'}/>
+			<Logo variant='white'/>
 			<Text variant='title'>{data.welcome}</Text>
-			<Text variant='body'>{data.welcome_msg}</Text>
+			<Text variant='body' containerSize='fixed'>{data.welcome_msg}</Text>
 			<div className='-flex-column -gap-medium'>
 
 				{authenticated?
