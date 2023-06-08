@@ -51,9 +51,8 @@
 	display: inline-flex;
 	width: 80vw;
 	height: 80vh;
-	max-height: 476px;
-	min-width: 267px;
-	max-width: 527px;
+	width: clamp(267px, 80vw, 527px);
+	height: clamp(225px, 80vh, 476px);
 }
 
 .bg.-header-bg-right::after{
