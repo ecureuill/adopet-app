@@ -1,16 +1,18 @@
-import {ReactComponent as LogoBlue} from '../../assets/images/logo-blue.svg';
-import {ReactComponent as LogoWhite} from '../../assets/images/logo-clear.svg';
+import { ReactComponent as LogoBlue } from '../../assets/images/logo-blue.svg';
+import { ReactComponent as LogoWhite } from '../../assets/images/logo-clear.svg';
+
+import './styles.css';
 
 type LogoProps = {
-	variant: 'blue' | 'white';
+	variant?: 'blue' | 'white';
 }
 
-const Logo = ( {variant = 'blue'}): JSX.Element => {
+const Logo = ( {variant = 'blue'} : LogoProps): JSX.Element => {
 
 	if(variant === 'white')
-		return <LogoWhite title='adopet' height={'46px'} width={'186px'}/>;
+		return <LogoWhite title='adopet' className='logo-adopet'/>;
 	
-	return <LogoBlue title='adopet' height={'46px'} width={'186px'}/>;
+	return <LogoBlue title='adopet' className='logo-adopet'/>;
 };
 
 export default Logo;
