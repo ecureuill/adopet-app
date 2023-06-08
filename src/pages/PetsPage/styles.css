@@ -1,11 +1,16 @@
 body.petspg main {
 	gap: unset;
+	align-items: center;
 }
 
 .pets-wrapper {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	margin-top: var(--spacing-largest);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-small);
+	justify-content: center;
 }
 
 .card-wrapper~.card-wrapper{
