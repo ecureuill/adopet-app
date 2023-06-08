@@ -71,10 +71,14 @@
 	left: auto;
 }
 
-.bg.-lost::before{
-	content: url('../../assets/images/pets-lost.png');
-	left: auto;
-	right: auto;
-	top: auto;
-	bottom: 0;
+.-bg-lost{
+	content: '';
+	background-image: url('../../assets/images/pets-lost.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	width: clamp(247px, 30vw, 338px);
+	height: clamp(312px, 39vw, 427px);
+	flex-shrink: 0;
+	flex-grow: 1;
 }
