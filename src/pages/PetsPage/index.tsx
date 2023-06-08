@@ -24,6 +24,7 @@ const PetsPage = (): JSX.Element => {
 			<Helmet>
 				<body className='petspg' />
 			</Helmet>
+			<Text variant='body' className='body-text'>{data.hello}!</Text>
 			<Text variant='body'>{data.pets_msg}</Text>
 			{status === 'loading' && <Text variant='body' size='small'>{status}...</Text>}
 			{	
