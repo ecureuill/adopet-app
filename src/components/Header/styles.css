@@ -6,12 +6,16 @@
 	width: 227px;
 	padding: 48px;
 	display: inline-flex;
-	align-items: baseline;
+	align-items: center;
 	gap: 56px;
 }
 
 .header.-header-colored {
 	background-color: var(--color-primary);
+}
+
+.header-menu-wrapper > .logo {
+	width: 128px;
 }
 
 .user-menu {
@@ -21,10 +25,5 @@
 	position: absolute;
 	top: 40px;
 	right: 37px;
-}
-
-.user-menu img{
-	height: 40px;
-	width: 40px;
 }
 

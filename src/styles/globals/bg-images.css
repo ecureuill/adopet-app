@@ -45,22 +45,25 @@
 
 .bg.-header-bg-left::before{
 	background-image: url('../../assets/images/header-bg.svg');
-	background-size: contain;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	content: '';
 	display: inline-flex;
-	width: 333px;
-	height: 274px;
+	width: 80vw;
+	height: 80vh;
+	max-height: 476px;
+	min-width: 267px;
+	max-width: 527px;
 }
 
 .bg.-header-bg-right::after{
 	background-image: url('../../assets/images/paws.png');
-	background-size: contain;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	content: '';
 	display: inline-flex;
-	width: 148px;
-	height: 243px;
+	width: clamp(148px, 30%, 292px);
+	height: 374px;
 
 	top: 0;
 	bottom: auto;

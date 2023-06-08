@@ -39,8 +39,8 @@ main {
 }
 
 header{
-	height: 95px;
-	min-height: 95px;
+	height: clamp(128px, 35vw, 196px);
+	
 	flex-grow: 0;
 	flex-shrink: 0;
 }
