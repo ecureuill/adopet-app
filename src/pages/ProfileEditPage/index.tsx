@@ -122,7 +122,7 @@ const ProfileEditPage = (): JSX.Element => {
 				submitedStatus={submitStatus}
 			>
 				<Text id={id} variant={'title'} size={'small'}>{data.profile}</Text>
-				<ImageUploader src={formState?.photo.file? URL.createObjectURL(formState?.photo.file) : formState.photo.value} alt='some user' width={80} height={80}/>
+				<ImageUploader src={formState?.photo.file? URL.createObjectURL(formState?.photo.file) : formState.photo.value} alt='some user'/>
 				<TextInput 
 					name='name'
 					value={formState?.name.value}

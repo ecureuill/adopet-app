@@ -6,18 +6,16 @@ import './styles.css';
 type ImageUploaderProps = {
 	src: string,
 	alt: string,
-	width: number,
-	height: number,
 }
 
-const ImageUploader = ({src, alt, width, height}: ImageUploaderProps): JSX.Element => {
+const ImageUploader = ({src, alt}: ImageUploaderProps): JSX.Element => {
 	const id = useId();
 
 	return (
 		<div className='imgUploader-wrapper'>
 			<label htmlFor={id}>
 				<p className='imgUploader-label'>{data.photo}</p>
-				<ProfilePhoto src={src} alt={alt} width={width} height={height}  className='imgUploader-photo'/>
+				<ProfilePhoto src={src} alt={alt} className='imgUploader-photo'/>
 			</label>
 			<input type='file'
 				name="photo"
