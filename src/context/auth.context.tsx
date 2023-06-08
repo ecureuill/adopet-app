@@ -26,10 +26,12 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 	const [error, setError] = useState('');
 
 	useEffect(() =>{
-		const data = localStorage.getItem('@PontoAuth:user');
-        
-		if(data){
-			const authdata: AuthData = JSON.parse(data);
+		const authdata:AuthData = {
+			user: localStorage.getItem('@adopetAuth:user') as unknown as User,
+			token: localStorage.getItem('@adopetAuth:token') as string
+		};
+
+		if(authdata.user){
 			setUser(authdata.user);
 			adopetAPI.defaults.headers['Authorization'] = `Bearer ${authdata.token}`;
 			setLoading(false);
@@ -49,7 +51,8 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 		if(response.status === 200)
 		{
 			adopetAPI.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
-			localStorage.setItem('@adopetAuth:data', response.data);
+			localStorage.setItem('@adopetAuth:user', response.data.user);
+			localStorage.setItem('@adopetAuth:token', response.data.token);
 			setUser(response.data.user);
 			return true;
 		}
