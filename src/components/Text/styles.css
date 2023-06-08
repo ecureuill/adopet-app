@@ -26,3 +26,7 @@
 .subtitle{
 	font: var(--font-title-s);
 }
+
+.fixed-width{
+	max-width: 350px;	
+}
