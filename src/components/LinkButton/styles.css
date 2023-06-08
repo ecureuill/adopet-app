@@ -3,6 +3,7 @@
 	border: none; 
 	border-radius: var(--spacing-radius);	
 	font: var(--font-button);
+	line-height: normal;
 	color: var(--color-zero);
 	
 	padding: var(--spacing-small);
