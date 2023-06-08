@@ -21,7 +21,7 @@ export const TabletOrAbove = ({ children } : PropsWithChildren) => {
 	return <>{isTablet && children}</>;
 };
 
-export const useMobileMediaQuery = () => useMediaQuery({ maxWidth: 360 });
+export const useMobileMediaQuery = () => useMediaQuery({ maxWidth: 768 });
 
 export const useTabletMediaQuery = () => useMediaQuery({ minWidth: 768, maxWidth: 1440 });
 
