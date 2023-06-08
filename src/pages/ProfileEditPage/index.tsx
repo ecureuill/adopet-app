@@ -1,5 +1,5 @@
-import { faker } from '@faker-js/faker/locale/pt_BR';
 import { useContext, useEffect, useId, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { Form, ImageUploader, Text, TextArea, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
@@ -7,6 +7,7 @@ import data from '../../i18n/pt-br.json';
 import { updateSome } from '../../services/api/tutor.api';
 import { useTutorQuery } from '../../services/query-client';
 import { bufferToURL } from '../../utils';
+import { useMobileMediaQuery } from '../../utils/media-queries';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
 
 
@@ -72,7 +73,6 @@ const ProfileEditPage = (): JSX.Element => {
 
 	}, [status]);
 
-
 	const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();	
 
@@ -111,9 +111,14 @@ const ProfileEditPage = (): JSX.Element => {
 			setStatusMsg({status: 'failed', message: (resp as any).error.message});
 	};
 
+	const background = useMobileMediaQuery()? '' : 'bg -body-bg-right';
+
 	return (
 		<>
-			<Text variant='body'>{data.profile_msg}</Text>
+			<Helmet>
+				<body className={background} />
+			</Helmet>
+			<Text variant='body' containerSize='fixed'>{data.profile_msg}</Text>
 			<Form 
 				aria-labelledby={id}
 				submitButtonLabel={data.save}
