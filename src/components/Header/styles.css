@@ -3,11 +3,17 @@
 }
 
 .header-menu-wrapper{
-	width: 227px;
+	width: clamp(267px, 80vw, 527px);
 	padding: 48px;
 	display: inline-flex;
 	align-items: center;
-	gap: 56px;
+	gap: 40px;
+}
+
+.header-logo-wrapper{
+	width: 100vw;
+	display: inline-flex;
+	justify-content: center;
 }
 
 .header.-header-colored {
