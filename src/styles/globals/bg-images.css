@@ -26,21 +26,21 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	content: '';
-	width: 84px;
-	height: 415px;
+	width: clamp(84px, 30%, 200px);
+	height: clamp(415px, 80vw, 664px);
 	top: 200px;
-	right: -20px;
+	right: calc(-0.6*clamp(84px, 30%, 200px));
 }
 
 .bg.-body-bg-pets::before{
 	content: '';
 	background-image: url('../../assets/images/pets.svg');
-	background-size: contain;
+	background-size: 100%;
 	background-repeat: no-repeat;
-	width: 247px;
-	height: 312px;
-	bottom: 86px;
-
+	width: clamp(247px, 30vw, 338px);
+	height: clamp(312px, 39vw, 427px);
+	bottom: calc(0.31*clamp(247px, 30vw, 338px));
+	background-position: bottom;
 }
 
 .bg.-header-bg-left::before{
