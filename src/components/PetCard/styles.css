@@ -1,6 +1,6 @@
 .card-wrapper{
-	width: 360px;
-	height: 196px;
+	width: clamp(344px, 20vw, 363px);
+	height: clamp(196px, 24vw, 205px);
 	background-color: var(--color-quinary);
 	display: flex;
 	flex-direction: row;
