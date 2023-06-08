@@ -35,7 +35,7 @@ const PetCard = ( {name, age, ageUnit, size, behavior, city, state, children}: P
 				<div className='card-shelter'>
 					<p className='shelter-location'>{city} ({state})</p>
 					{ authenticated &&
-						<IconLink link={'/contact'} label={data.talk_to_shelter}>
+						<IconLink link={'contact'} label={data.talk_to_shelter}>
 							<MessageIco />
 						</IconLink>
 					}
