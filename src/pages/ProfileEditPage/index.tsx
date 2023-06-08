@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { useContext, useEffect, useId, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
@@ -9,14 +10,16 @@ import { useTutorQuery } from '../../services/query-client';
 import { bufferToURL } from '../../utils';
 import { useMobileMediaQuery } from '../../utils/media-queries';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
+import { generateUseerData } from '../../__test__/utils/generate';
 
 
 const ProfileEditPage = (): JSX.Element => {
 	const id= useId();
 	const {user, updateUser} = useContext(AuthContext);
 	const navigate = useNavigate();
-	const { data: tutorQuery, status} = useTutorQuery(user!.id!);
+	const [ tutorQuery, setTutorQuery ] = useState<any>({});
 
+	const [ status, setStatus] = useState('loading');
 	const [ submitStatus, setStatusMsg] = useState<SubmitedStatus>({status: 'not-submited'});
 
 	const [formState, setFormState] = useState<{
@@ -45,8 +48,22 @@ const ProfileEditPage = (): JSX.Element => {
 	});
 
 	useEffect(() => {
+		console.debug('ProfileEditPage 1');
+		setTutorQuery({
+			data: {
+				about: faker.lorem.paragraphs(),
+				user: generateUseerData({...user})
+			} 
+		});
+		setStatus('success');
+		console.debug(1);
+	}, []);
+
+	useEffect(() => {
+		console.debug('ProfileEditPage 2');
 
 		if(status === 'success'){
+			console.debug(2);
 			setFormState({
 				name: {
 					valid: !!tutorQuery.data.user.name,
@@ -66,7 +83,7 @@ const ProfileEditPage = (): JSX.Element => {
 				},
 				photo: {
 					valid: !!tutorQuery.data.user.photo,
-					value: tutorQuery.data.user.photo? bufferToURL(tutorQuery.data.user.photo.data): '', 
+					value: tutorQuery.data.user.photo, 
 				}
 			});
 		}	
@@ -78,37 +95,14 @@ const ProfileEditPage = (): JSX.Element => {
 
 		const formData = new FormData(event.currentTarget);
 
-		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-		const resp = await updateSome(user!.id!, formData);
-
-		if((resp).status === 200){
-			setStatusMsg({status: 'success'});
-			
-			const name = formData.get('name');
-			const photo = formData.get('photo') as File;
-			
-			if(name !== null){
-				console.debug('name !== null');
-				console.debug(name);
-				updateUser({name: name});
-			}
-
-			if(photo !== null && photo.size > 0 && photo.type.startsWith('image')){
-				const fr = new FileReader();
-				fr.readAsArrayBuffer(photo as File);
-				fr.onloadend = () =>{
-					updateUser({photo: {data: fr.result}});
-				};
-			}
-		}
+		setStatusMsg({status: 'success'});
 		
-		else if((resp as any).redirect)
-			navigate('ops',{ 
-				replace: true
-			});
-		
-		else
-			setStatusMsg({status: 'failed', message: (resp as any).error.message});
+		updateUser({
+			name: formData.get('name'),
+			city: formData.get('city'),
+			phone: formData.get('phone'),
+			photo: formData.get('photo') 
+		});
 	};
 
 	const background = useMobileMediaQuery()? '' : 'bg -body-bg-right';

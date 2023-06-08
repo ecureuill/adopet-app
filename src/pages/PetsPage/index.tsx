@@ -3,21 +3,17 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { PetCard, Text } from '../../components';
 import data from '../../i18n/pt-br.json';
-import { usePetsQuery } from '../../services/query-client';
+import { generatePetsData } from '../../__test__/utils/generate';
 import './styles.css';
 
 const PetsPage = (): JSX.Element => {
-	const { data: petQuery, status} = usePetsQuery();
 	const [pets, setPets] = useState<any[]>([]);
+	const [status, setStatus] = useState<string>('loading');
 
 	useEffect(() => {
-		if(status === 'success'){
-			if(petQuery.data.entities !== undefined){
-				setPets(petQuery.data.entities);
-				console.debug(petQuery.data.entities);
-			}
-		}
-	}, [petQuery, status]);
+		setPets(generatePetsData(3));
+		setStatus('success');
+	}, []);
 
 	return (
 		<>

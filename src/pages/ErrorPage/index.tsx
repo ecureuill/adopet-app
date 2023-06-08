@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet';
 import { Text } from '../../components';
 import data from '../../i18n/pt-br.json';
 

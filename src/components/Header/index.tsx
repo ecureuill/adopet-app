@@ -4,7 +4,6 @@ import { ReactComponent as HomeIco } from '../../assets/images/home.svg';
 import LogoClear from '../../assets/images/logo-clear.svg';
 import { ReactComponent as MessageIco } from '../../assets/images/messages.svg';
 import { AuthContext } from '../../context/auth.context';
-import { bufferToURL } from '../../utils';
 import { TabletOrAbove, useDesktopBigMediaQuery } from '../../utils/media-queries';
 import IconLink from '../IconLink';
 import Logo from '../Logo';
@@ -44,7 +43,7 @@ const Header = ({className: styles, ...rest}: React.ComponentPropsWithoutRef<'he
 			{ authenticated &&
 				<div className='user-menu'>
 					<IconLink label='my profile' link='/myprofile' key='profile' onlyIcon={true}>
-						<ProfilePhoto alt='usuario' src={user?.photo? bufferToURL(user.photo.data) : ''}/>
+						<ProfilePhoto alt='usuario' src={user?.photo? user.photo : ''}/>
 					</IconLink>
 				</div>
 			}

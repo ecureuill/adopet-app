@@ -2,6 +2,7 @@ import { createContext, PropsWithChildren, useContext, useEffect, useState } fro
 import { adopetAPI } from '../services/api';
 import { login } from '../services/api/user.api';
 import { User } from '../utils/types';
+import { generateUseerData } from '../__test__/utils/generate';
 
 interface IAuthContext {
 	authenticated: boolean
@@ -26,53 +27,43 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 	const [error, setError] = useState('');
 
 	useEffect(() =>{
-		const authdata:AuthData = {
-			user: localStorage.getItem('@adopetAuth:user') as unknown as User,
-			token: localStorage.getItem('@adopetAuth:token') as string
-		};
-
-		if(authdata.user){
-			setUser(authdata.user);
-			adopetAPI.defaults.headers['Authorization'] = `Bearer ${authdata.token}`;
+		const data = localStorage.getItem('@adopetAuth:user');
+		
+		if(data !== null){
+			setUser(JSON.parse(data) as unknown as User);
 			setLoading(false);
 		}
 		else
 		{
 			setLoading(false);
 		}
-	}, [user]);
+	}, []);
 
 	const signIn = async (email: string, password: string) => {
 		setError('');
 		console.debug('signIn');
-		
-		const response = await login(email, password);
-		
-		if(response.status === 200)
+		if(email === 'tutor@mail.com' && password === '123aSd7')
 		{
-			adopetAPI.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
-			localStorage.setItem('@adopetAuth:user', response.data.user);
-			localStorage.setItem('@adopetAuth:token', response.data.token);
-			setUser(response.data.user);
+			const user = generateUseerData();
+			localStorage.setItem('@adopetAuth:user', JSON.stringify(user) );
+			setUser({...user, role: 'tutor'});
 			return true;
 		}
 		else
 		{
-			setError((response as any).error.message);
+			setError('Wrong credentials');
 			return false;
 		}
 	};
 
 	const signOut = () => {
 		adopetAPI.defaults.headers['Authorization'] = null;
-		localStorage.removeItem('@adopetAuth');
+		localStorage.removeItem('@adopetAuth:user');
 		setUser(null);
 	};
 
 	const updateUser = (arg: {[key: string]: any}) => {
-		setUser((prev) => {
-			return {...prev!, ...arg};
-		});
+		setUser({...user!, ...arg});
 	};
 	
 	return (
