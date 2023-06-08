@@ -2,3 +2,9 @@
 	 height: clamp(46px, 20vw, 64px);
 	 width: clamp(186px, 22vw, 260px);
 }
+
+.logo-adopet > *{
+	 height: 100%;
+	 width: 100%;
+}
+

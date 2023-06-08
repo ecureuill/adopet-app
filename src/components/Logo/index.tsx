@@ -9,10 +9,14 @@ type LogoProps = {
 
 const Logo = ( {variant = 'blue'} : LogoProps): JSX.Element => {
 
-	if(variant === 'white')
-		return <LogoWhite title='adopet' className='logo-adopet'/>;
+	return <div className='logo-adopet'>
+		{ variant === 'white' ?
+			<LogoWhite title='adopet'/>
+			:
+			<LogoBlue title='adopet'/>
+		}
+	</div>;
 	
-	return <LogoBlue title='adopet' className='logo-adopet'/>;
 };
 
 export default Logo;
