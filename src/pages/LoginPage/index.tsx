@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Form, Logo, TextInput } from '../../components';
+import { Form, Logo, Text, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
+import { useMobileMediaQuery } from '../../utils/media-queries';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
 
 const LoginPage = (): JSX.Element => {
@@ -50,13 +51,15 @@ const LoginPage = (): JSX.Element => {
 			});
 	}, [authContext.error]);
 
+	const background = useMobileMediaQuery()? '-body-bg-left': '-body-bg-right';
+
 	return (
 		<>
 			<Helmet>
-				<body className='bg -body-bg-left -body-bg-paws' />
+				<body className={`bg ${background} -body-bg-paws`} />
 			</Helmet>
 			<Logo />
-			<p>{data.login_msg}</p>
+			<Text variant='body' containerSize='fixed' >{data.login_msg}</Text>
 			<Form 
 				color='white'
 				submitButtonLabel={data.login}
