@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Form, Logo, Text, TextInput } from '../../components';
+import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
 import { signUpTutor } from '../../services/api/user.api';
 import { DesktopOrAbove } from '../../utils/media-queries';
@@ -66,6 +67,12 @@ const SignUpPage = (): JSX.Element => {
 		}
 
 	};
+
+	const { authenticated } = useContext(AuthContext);
+
+	if (authenticated) {
+		return <Navigate to="/" replace />;
+	}
 
 	return (
 		<>

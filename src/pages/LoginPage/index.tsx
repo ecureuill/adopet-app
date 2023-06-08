@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Form, Logo, Text, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
@@ -52,6 +52,12 @@ const LoginPage = (): JSX.Element => {
 	}, [authContext.error]);
 
 	const background = useMobileMediaQuery()? '-body-bg-left': '-body-bg-right';
+
+	const { authenticated } = useContext(AuthContext);
+
+	if (authenticated) {
+		return <Navigate to="/" replace />;
+	}
 
 	return (
 		<>
