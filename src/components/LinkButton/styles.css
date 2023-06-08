@@ -7,8 +7,8 @@
 	
 	padding: var(--spacing-small);
 
-	height: 40px;
-	width: 181px;
+	height: clamp(40px, 20vw, 48px);
+	width: clamp(181px, 25vw, 362px);
 
 	text-decoration: none;
 	text-align: center;
