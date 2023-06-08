@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { LinkButton, Logo, Text } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
+import { DesktopOrAbove } from '../../utils/media-queries';
 import './styles.css';
 
 const HomePage = (): JSX.Element => {
@@ -12,9 +13,11 @@ const HomePage = (): JSX.Element => {
 	return (
 		<>
 			<Helmet>
-				<body className='homepg bg -body-bg-right -body-bg-pets' />
+				<body className={'homepg bg -body-bg-right'}/>
 			</Helmet>
-			<Logo variant='white'/>
+			<DesktopOrAbove>
+				<Logo variant='white'/>
+			</DesktopOrAbove>
 			<Text variant='title'>{data.welcome}</Text>
 			<Text variant='body' containerSize='fixed'>{data.welcome_msg}</Text>
 			<div className='-flex-column -gap-medium'>
@@ -28,6 +31,7 @@ const HomePage = (): JSX.Element => {
 					</>
 				}
 			</div>
+			<div className='-body-bg-pets'/>
 		</>
 	);
 };

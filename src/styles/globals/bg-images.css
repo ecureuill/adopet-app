@@ -32,15 +32,15 @@
 	right: calc(-0.6*clamp(84px, 30%, 200px));
 }
 
-.bg.-body-bg-pets::before{
-	content: '';
+.-body-bg-pets{
 	background-image: url('../../assets/images/pets.svg');
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: clamp(247px, 30vw, 338px);
 	height: clamp(312px, 39vw, 427px);
-	bottom: calc(0.31*clamp(247px, 30vw, 338px));
 	background-position: bottom;
+	flex-shrink: 0;
+	flex-grow: 1;
 }
 
 .bg.-header-bg-left::before{
