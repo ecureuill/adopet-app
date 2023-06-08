@@ -20,6 +20,9 @@ const PetCard = ( {name, age, ageUnit, size, behavior, city, state, children}: P
 
 	const { authenticated } = useContext(AuthContext);
 
+	if(city.length > 13)
+		city = city.substring(0, 12) + '...';
+
 	return (
 		<article className='card-wrapper'>
 			<div className='card-img'>

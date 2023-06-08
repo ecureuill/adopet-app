@@ -1,6 +1,6 @@
 :root{
 	--size-base: 10px;
-	--size-xxsmall: clamp(1.4rem, 2vw, 1.6rem);;
+	--size-xxsmall: clamp(1.2rem, 2vw, 1.4rem);;
 	--size-xsmall: clamp(1.4rem, 2vw, 1.6rem);;
 	--size-small: clamp(1.6rem, 2vw, 1.8rem);
 	--size-medium: clamp(1.8rem, 2vw, 2.0rem);;

@@ -42,4 +42,8 @@
 	text-align: left;
 	color: var(--color-negative);
 	font: var(--font-body-xxs);
+	display: inline-block;
+	width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
 }
