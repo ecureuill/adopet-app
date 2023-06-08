@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/adopet-app/static/css/main.5eb2d5be.css",
-    "main.js": "/adopet-app/static/js/main.7c5297c0.js",
+    "main.css": "/adopet-app/static/css/main.d6dc8c7a.css",
+    "main.js": "/adopet-app/static/js/main.12bf6920.js",
     "static/js/787.3745c325.chunk.js": "/adopet-app/static/js/787.3745c325.chunk.js",
     "static/media/paws.png": "/adopet-app/static/media/paws.e0dc4ce81389d6bcaf42.png",
     "static/media/pets-lost.png": "/adopet-app/static/media/pets-lost.20d80c10dd73a522559b.png",
@@ -17,12 +17,12 @@
     "static/media/body-bg-2.svg": "/adopet-app/static/media/body-bg-2.1783641e9e50062c596f.svg",
     "static/media/header-bg.svg": "/adopet-app/static/media/header-bg.044069ffb5f84fbd554e.svg",
     "static/media/home.svg": "/adopet-app/static/media/home.ee2869b277070865e1bcf08741dae8fe.svg",
-    "main.5eb2d5be.css.map": "/adopet-app/static/css/main.5eb2d5be.css.map",
-    "main.7c5297c0.js.map": "/adopet-app/static/js/main.7c5297c0.js.map",
+    "main.d6dc8c7a.css.map": "/adopet-app/static/css/main.d6dc8c7a.css.map",
+    "main.12bf6920.js.map": "/adopet-app/static/js/main.12bf6920.js.map",
     "787.3745c325.chunk.js.map": "/adopet-app/static/js/787.3745c325.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5eb2d5be.css",
-    "static/js/main.7c5297c0.js"
+    "static/css/main.d6dc8c7a.css",
+    "static/js/main.12bf6920.js"
   ]
 }
