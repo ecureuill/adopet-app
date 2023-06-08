@@ -1,6 +1,8 @@
 import { FormEvent, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Form, Text, TextArea, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
+import { useMobileMediaQuery } from '../../utils/media-queries';
 import { FormDataState } from '../../utils/types';
 
 const SentMessagePage = (): JSX.Element => {
@@ -26,9 +28,14 @@ const SentMessagePage = (): JSX.Element => {
 		}
 	});
 
+	const background = useMobileMediaQuery()? '' : 'bg -body-bg-right';
+
 	return (
 		<>
-			<Text variant='body'>{data.sent_msg}</Text>
+			<Helmet>
+				<body className={background} />
+			</Helmet>
+			<Text variant='body' containerSize='fixed'>{data.sent_msg}</Text>
 			<Form 
 				color='default'
 				submitButtonLabel={data.send} 
