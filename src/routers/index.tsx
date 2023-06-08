@@ -13,38 +13,49 @@ export const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Root/>,
-		errorElement: <ErrorPage />,
 		children:[
 			{
-				path: '/',
-				element: <HomePage />
-			},
-			{
-				path: '/signUp',
-				element: <SignUpPage />
-			},
-			{
-				path: '/signup',
-				element: <LoginPage />
-			},
-			{
-				path: '/login',
-				element:<LoginPage />
-			},
-			{
-				path: '/pets',
-				element: <PetsPage />,
+				errorElement: <ErrorPage />,
 				children:[
 					{
-						path: 'contact',
-						element: <SentMessagePage />
+						path: '*',
+						element: <ErrorPage />
+					},
+					{
+						path: '',
+						element: <HomePage />
+					},
+					{
+						path: '/signUp',
+						element: <SignUpPage />
+					},
+					{
+						path: '/signup',
+						element: <LoginPage />
+					},
+					{
+						path: '/login',
+						element:<LoginPage />
+					},
+					{
+						path: '/pets',
+						children:[
+							{
+								path: '',
+								element: <PetsPage />
+							},
+							{
+								path: 'contact',
+								element: <RequireAuth><SentMessagePage /></RequireAuth>
+							},
+						]
+					},
+					{
+						path: '/myprofile',
+						element: <RequireAuth><ProfileEditPage /></RequireAuth>
 					},
 				]
-			},
-			{
-				path: '/myprofile',
-				element: <RequireAuth><ProfileEditPage /></RequireAuth>
-			},
+			}
 		]
 	},
 
