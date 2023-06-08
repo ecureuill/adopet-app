@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Logo, Text, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
 import { signUpTutor } from '../../services/api/user.api';
+import { DesktopOrAbove } from '../../utils/media-queries';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
 
 const SignUpPage = (): JSX.Element => {
@@ -71,7 +72,9 @@ const SignUpPage = (): JSX.Element => {
 			<Helmet>
 				<body className='bg -body-bg-left' />
 			</Helmet>
-			<Logo />
+			<DesktopOrAbove>
+				<Logo />
+			</DesktopOrAbove>
 			<span>
 				<Text variant='body'>{data.signup_msg_question}</Text>
 				<Text variant='body' containerSize='fixed'>{data.signup_msg_answer}</Text>

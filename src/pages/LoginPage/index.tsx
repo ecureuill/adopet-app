@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Form, Logo, Text, TextInput } from '../../components';
 import { AuthContext } from '../../context/auth.context';
 import data from '../../i18n/pt-br.json';
-import { useMobileMediaQuery } from '../../utils/media-queries';
+import { DesktopOrAbove, useMobileMediaQuery } from '../../utils/media-queries';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
 
 const LoginPage = (): JSX.Element => {
@@ -58,7 +58,9 @@ const LoginPage = (): JSX.Element => {
 			<Helmet>
 				<body className={`bg ${background} -body-bg-paws`} />
 			</Helmet>
-			<Logo />
+			<DesktopOrAbove>
+				<Logo />
+			</DesktopOrAbove>
 			<Text variant='body' containerSize='fixed' >{data.login_msg}</Text>
 			<Form 
 				color='white'
