@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { Form, Logo, TextInput } from '../../components';
+import { Form, Logo, Text, TextInput } from '../../components';
 import data from '../../i18n/pt-br.json';
 import { signUpTutor } from '../../services/api/user.api';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
@@ -73,8 +73,8 @@ const SignUpPage = (): JSX.Element => {
 			</Helmet>
 			<Logo />
 			<span>
-				<p>{data.signup_msg_question}</p>
-				<p>{data.signup_msg_answer}</p>
+				<Text variant='body'>{data.signup_msg_question}</Text>
+				<Text variant='body' containerSize='fixed'>{data.signup_msg_answer}</Text>
 			</span>
 			<Form 
 				color='white'
