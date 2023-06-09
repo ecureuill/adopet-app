@@ -37,7 +37,7 @@ Coded Features
 
 ### Demo version
 For demo purpose, a version with mock data was published [here](https://ecureuill.github.io/adopet-app/).
-You can log in with email `tutor@mail.com` and password `123aSd7`.
+You can log in with email `tutor@mail.com` and password `123aSd7`.  It will automatically logout after 1 minute. 
 
 Is possible to edit user profile data, except for the photo (you can select one from your device, but it will not be rendered). 
 You can mimic create a new user and sent message to a shelter. 
