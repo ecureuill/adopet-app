@@ -1,4 +1,5 @@
 import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { adopetAPI } from '../services/api';
 import { login } from '../services/api/user.api';
 import { User } from '../utils/types';
@@ -32,6 +33,10 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 		if(data !== null){
 			setUser(JSON.parse(data) as unknown as User);
 			setLoading(false);
+
+			const timer = setTimeout(() => {
+				signOut();
+			}, 60000);
 		}
 		else
 		{
@@ -47,6 +52,9 @@ export const AuthProvider = ({children}: PropsWithChildren): JSX.Element => {
 			const user = generateUseerData();
 			localStorage.setItem('@adopetAuth:user', JSON.stringify(user) );
 			setUser({...user, role: 'tutor'});
+			const timer = setTimeout(() => {
+				signOut();
+			}, 60000);
 			return true;
 		}
 		else
