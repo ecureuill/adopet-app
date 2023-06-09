@@ -26,6 +26,10 @@ export const router = createBrowserRouter([
 						element: <HomePage />
 					},
 					{
+						path: '/adopet-app',
+						element: <HomePage />
+					},
+					{
 						path: '/signUp',
 						element: <SignUpPage />
 					},

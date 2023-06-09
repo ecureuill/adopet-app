@@ -9,6 +9,7 @@ import { DesktopOrAbove } from '../../utils/media-queries';
 import { FormDataState, SubmitedStatus } from '../../utils/types';
 
 const SignUpPage = (): JSX.Element => {
+	const { signIn, updateUser } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const [ submitStatus, setStatusMsg] = useState<SubmitedStatus>({status: 'not-submited'});
 
@@ -41,16 +42,9 @@ const SignUpPage = (): JSX.Element => {
 		const password = formData.get('password') as string;
 		const name = formData.get('name') as string;
 
+		await signIn('tutor@mail.com', '123aSd7');
+		updateUser({name: name, city: undefined, state: undefined, phone: undefined, photo: undefined});
 
-		const resp = await signUpTutor(email, password, name);
-
-		if(resp.status === 201){
-			navigate('/login', { replace: true });
-		}
-		else
-		{
-			setStatusMsg({status: 'failed', message: (resp as any).error.message});
-		}
 	};
 
 	const passwordReDoValidation = (event: React.FocusEvent<HTMLInputElement, Element>): void => {

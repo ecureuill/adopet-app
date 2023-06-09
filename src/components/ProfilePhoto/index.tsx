@@ -9,7 +9,7 @@ interface ProfilePhotoProps extends React.ComponentPropsWithoutRef<'img'>{
 const ProfilePhoto = ( props: ProfilePhotoProps): JSX.Element => {
 	const { className: styles, src, ...rest } = props;
 
-	if(src === '')
+	if(src === '' || src === undefined)
 		return <UserIco className={`profile-img ${styles}`} />;
 
 	return (

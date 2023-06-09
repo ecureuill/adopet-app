@@ -11,7 +11,7 @@ const PetsPage = (): JSX.Element => {
 	const [status, setStatus] = useState<string>('loading');
 
 	useEffect(() => {
-		setPets(generatePetsData(3));
+		setPets(generatePetsData(23));
 		setStatus('success');
 	}, []);
 
