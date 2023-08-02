@@ -1,11 +1,21 @@
 
-# Adopet
+<div align="center">
 
-<img src="./src/assets/images/logo-blue.svg" width=800px/>
+# <a href='https://ecureuill.github.io/Adopet-app/'><img src="./src/assets/images/logo-blue.svg" alt="adopet" width=800px/></a>
+
+![HTML5](https://img.shields.io/badge/-HTML5-000?&logo=HTML5)
+![CSS3](https://img.shields.io/badge/-CSS3-000?&logo=CSS3)
+![React](https://img.shields.io/badge/-React-000?&logo=React)
+![Docker](https://img.shields.io/badge/-Docker-000?&logo=Docker)
+![Linux](https://img.shields.io/badge/-Linux-000?&logo=Linux)
+![Git](https://img.shields.io/badge/Git-000?&logo=Git)
+![SublimeText](https://img.shields.io/badge/SublimeText-000?&logo=SublimeText)
 
 [![Alura Challenge Front-End](https://www.alura.com.br/assets/img/challenges/logos/challenges-logo-front.1674580905.svg)](https://www.alura.com.br/challenges) 
 
 4-week challenge to develop the version of the adopter user's screens for the AdoPet website, which will have a login page, registration, list of pets and message form. This is a project focused on responsive layout, being recommended the mobile first approach. 
+
+</div>
 
 -------------------------
 
@@ -20,41 +30,73 @@
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![Adopet - home page](https://github.com/ecureuill/adopet-app/assets/993369/73f362b2-cebb-480b-a957-b2762f37d4c4)
 
+## Table of Content
+
+- [About](#about)
+- [Project Details](#project-details)
+- [Technologies Used](#technologies-used)
+- [Layout and Responsiveness](#layout-and-responsiveness)
+- [Live demo](#live-demo)
+- [Feedback and Contribution](#feedback-and-contributions)
+- [Screenshots](#screenshots)
+
+## About
+Adopet App is the result of the Alura Front-end Challenge, developed based on the provided [Figma design](https://www.figma.com/file/TlfkDoIu8uyjZNla1T8TpH/Challenge---Adopet). The project showcases the skills and knowledge acquired during the challenge.
 
 ## Project Details
 
-This project is consuming data from [Adopet API ](https://github.com/ecureuill/adopet) using [axios](https://github.com/axios/axios) for http client and [react-query ](https://github.com/TanStack/query) for state management.
+The server-side of the Adopet App is developed in Node.js and can be found in a separate repository at [Adopet API ](https://github.com/ecureuill/adopet).
 
-The css architecture was based on ITCSS.
+## Technologies Used
+
+The project is built using the following technologies:
+
+- React
+- TypeScript
+- React-Router-Dom
+- React-Query
+- React-Responsive
+- Axios
+- Testing-Library
+
+I tried to well-structured and organize the project. The css architecture was based on ITCSS.
+
+The use of TypeScript enhances code readability and promotes type safety.
+
+The adoption of React-Query helps optimize data fetching and management, resulting in faster loading times and improved performance. The use of Axios for API communication ensures efficient handling of asynchronous requests.
+
+## Layout and Responsiveness
+
+The Adopet App boasts a beautifully designed and responsive layout. It has been thoughtfully crafted with a mobile-first approach, ensuring seamless user experience across various devices, from desktops to tablets and smartphones.
+
+The design is fluid, allowing it to adapt gracefully to different screen sizes and resolutions, providing an optimal viewing experience to users. The use of vanilla CSS ensures a lightweight and efficient rendering of styles, contributing to faster loading times and smoother interactions.
 
 For the responsive layout, I decided to experiment with fluid design, instead of fixed breakpoints. And when a component should only render in specifics screen width, I used [react-responsive](https://github.com/yocontra/react-responsive) hooks to determine the condition. 
 
-Coded Features
-- Register tutor user
-- Log in
-- Edit tutor profile  (all data and photo)
-- List all pets
-
-### Demo version
+## Live demo
 For demo purpose, a version with mock data was published [here](https://ecureuill.github.io/adopet-app/).
 You can log in with email `tutor@mail.com` and password `123aSd7`.  It will automatically logout after 1 minute. 
 
 Is possible to edit user profile data, except for the photo (you can select one from your device, but it will not be rendered). 
 You can mimic create a new user and sent message to a shelter. 
 
-### Next step
+## Running Locally
 
-- [ ] Redesign with accessibiltiy-first approach
-- [ ] Create shelter-user signup page
-- [ ] Create shelter-user profile edit page
-- [ ] Create pet register for shelter user
-- [ ] Create pet edit page for shelter user
-- [ ] Create pet adopt page for shelter user
-- [ ] Create shelter-user signup page
-- [ ] Create inbox message page
-- [ ] Improve sent message page
+To run the Adopet App locally, follow these steps:
 
-### Screenshots
+1. Clone this repository: `git clone https://github.com/ecureuill/adopet-app.git`
+1. Install the dependencies: `npm install`
+1. Start the development server: `npm start`
+1. Follow instructions on how to run locally the server-side in the separete repository [here](https://github.com/ecureuill/adopet)
+1. Access the app in your web browser at: http://localhost:3000
+
+## Feedback and Contributions
+
+Feedback and contributions are always welcome! If you have any suggestions or find any issues in the project, feel free to create an issue or submit a pull request.
+
+## Screenshots
+Screenshots have been provided to demonstrate functionalities and responsiveness of the layout.
+
 #### Mobile 
 
 ##### Non authenticated user
